@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class tutorials_model extends CI_Model {
+class Tutorials_model extends CI_Model {
 
 	public $variable;
 

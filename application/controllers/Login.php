@@ -5,7 +5,7 @@ class Login extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('login_model');
+		$this->load->model('Login_model');
 	}
 
 	public function index()
@@ -18,8 +18,8 @@ class Login extends CI_Controller {
 		$userName = $this->input->post('username');
 		$passWord = $this->input->post('password');
 
-		if($this->login_model->checkLogin($userName,$passWord)){
-			$dataUser = $this->login_model->getUserInfo($userName);
+		if($this->Login_model->checkLogin($userName,$passWord)){
+			$dataUser = $this->Login_model->getUserInfo($userName);
 
 			$userId = $dataUser[0]['UserID'];
 			$firstName = $dataUser[0]['FirstName'];

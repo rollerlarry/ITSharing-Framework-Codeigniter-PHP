@@ -103,6 +103,10 @@
                           </div>
                         </div>
                       </div>
+                      <div class="row">
+                        <label class="col-sm-4 col-form-label"><span class="text-danger"> Note: Need at least one link for tutorial (Default link GGDriver)</span></label>
+                        
+                      </div>
                     </div>
                     <div class="card-footer ">
                         <a href="http://localhost/ITSharing/Tutorials/manageTutorials" class="btn btn-fill btn-info"><span class="material-icons">arrow_back_ios</span> Back ManageTutorials</a>

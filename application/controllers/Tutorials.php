@@ -5,8 +5,8 @@ class Tutorials extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('tutorials_model');
-		$this->load->model('accounts_model');
+		$this->load->model('Tutorials_model');
+		$this->load->model('Accounts_model');
 	}
 
 	public function index()
@@ -16,8 +16,8 @@ class Tutorials extends CI_Controller {
 
 	public function manageTutorials()
 	{
-		$dataTutorials = $this->tutorials_model->getListTutorials();
-		$countTutorials = $this->tutorials_model->countListTutorials();
+		$dataTutorials = $this->Tutorials_model->getListTutorials();
+		$countTutorials = $this->Tutorials_model->countListTutorials();
 		$dataTutorials = array('arrayDataTutorials' => $dataTutorials, 'countListTutorials' => $countTutorials);
 		$this->load->view('manage_tutorials_view',$dataTutorials);
 	}
@@ -26,8 +26,8 @@ class Tutorials extends CI_Controller {
 	{
 		$userID = $this->session->userdata('UserID');
 
-		$dataTutorials = $this->tutorials_model->getListTutorialsForUserUpload($userID);
-		$countTutorialsForUserUpload = $this->tutorials_model->countListTutorialsForUserUpload($userID);
+		$dataTutorials = $this->Tutorials_model->getListTutorialsForUserUpload($userID);
+		$countTutorialsForUserUpload = $this->Tutorials_model->countListTutorialsForUserUpload($userID);
 
 		$dataTutorials = array('arrayDataTutorials' => $dataTutorials, 'countTutorialsForUserUpload' => $countTutorialsForUserUpload);
 		$this->load->view('my_tutorials_view',$dataTutorials);
@@ -35,7 +35,7 @@ class Tutorials extends CI_Controller {
 
 	public function addTutorial()
 	{
-		$dataCategorie = $this->tutorials_model->getListCategories();
+		$dataCategorie = $this->Tutorials_model->getListCategories();
 		$dataCategorie = array('arrayDataCategories' => $dataCategorie);
 		$this->load->view('add_tutorial_view',$dataCategorie);
 	}
@@ -106,7 +106,7 @@ class Tutorials extends CI_Controller {
 				$this->session->set_flashdata('categorie_null', 'Invalid tutorial');
 				redirect(base_url().'Tutorials/addTutorial','refresh');
 			}else{
-				$this->tutorials_model->insertTutorial($userID,$tutorialTitle,$tutorialDescription,$tutorialImage,$tutorialCategorie,$tutorialUrl,$tutorialUrl2,$tutorialUrl3);
+				$this->Tutorials_model->insertTutorial($userID,$tutorialTitle,$tutorialDescription,$tutorialImage,$tutorialCategorie,$tutorialUrl,$tutorialUrl2,$tutorialUrl3);
 			redirect(base_url().'Tutorials/manageTutorials','refresh');
 			}
 		}
@@ -114,12 +114,12 @@ class Tutorials extends CI_Controller {
 
 	public function detailTutorial($tutorialID)
 	{
-		$dataTutorial = $this->tutorials_model->getInfoDetailTutorial($tutorialID);
+		$dataTutorial = $this->Tutorials_model->getInfoDetailTutorial($tutorialID);
 
-		$userID = $this->tutorials_model->getUserIDUploadTutorial($tutorialID);
+		$userID = $this->Tutorials_model->getUserIDUploadTutorial($tutorialID);
 		$userID = $userID[0]['UserID'];
 
-		$dataListTutorials = $this->tutorials_model->getListTutorialsForUser($userID,$tutorialID);
+		$dataListTutorials = $this->Tutorials_model->getListTutorialsForUser($userID,$tutorialID);
 
 		$dataTutorial = array('arrayDataTutorial' => $dataTutorial,'arrayDataTutorialForUser' => $dataListTutorials);
 
@@ -128,19 +128,19 @@ class Tutorials extends CI_Controller {
 
 	public function privateTutorial($tutorialID)
 	{
-		$this->tutorials_model->privateTutorial($tutorialID);
+		$this->Tutorials_model->privateTutorial($tutorialID);
 		redirect(base_url().'Tutorials/manageTutorials','refresh');
 	}
 
 	public function publicTutorial($tutorialID)
 	{
-		$this->tutorials_model->publicTutorial($tutorialID);
+		$this->Tutorials_model->publicTutorial($tutorialID);
 		redirect(base_url().'Tutorials/manageTutorials','refresh');
 	}
 
 	public function delTutorial($tutorialID)
 	{
-		$this->tutorials_model->delTutorial($tutorialID);
+		$this->Tutorials_model->delTutorial($tutorialID);
 	}
 
 	public function fastEditTutorial($tutorialID)
@@ -148,7 +148,7 @@ class Tutorials extends CI_Controller {
 		$tutorialTitle = $this->input->post('tutorialTitle');
 		$tutorialDescription = $this->input->post('tutorialDescription');
 
-		$this->tutorials_model->updateFastEdit($tutorialID,$tutorialTitle,$tutorialDescription);
+		$this->Tutorials_model->updateFastEdit($tutorialID,$tutorialTitle,$tutorialDescription);
 	}
 
 
@@ -170,7 +170,7 @@ class Tutorials extends CI_Controller {
 
 	public function manageCategories()
 	{
-		$dataCategorie = $this->tutorials_model->getListCategories();
+		$dataCategorie = $this->Tutorials_model->getListCategories();
 		$dataCategorie = array('arrayDataCategories' => $dataCategorie);
 
 		$this->load->view('manage_categories_tutorials_view',$dataCategorie);
@@ -179,7 +179,7 @@ class Tutorials extends CI_Controller {
 	public function addCategorie()
 	{
 		$categorieName = $this->input->post('categorieName');
-		$this->tutorials_model->insertCategorie($categorieName);
+		$this->Tutorials_model->insertCategorie($categorieName);
 
 		echo json_encode($this->db->insert_id());
 
@@ -189,12 +189,12 @@ class Tutorials extends CI_Controller {
 	public function editCategorie($CategorieID)
 	{
 		$categorieNameEdit = $this->input->post('categorieNameEdit');
-		$this->tutorials_model->editCategorie($CategorieID,$categorieNameEdit);
+		$this->Tutorials_model->editCategorie($CategorieID,$categorieNameEdit);
 	}
 
 	public function delCategorie($CategorieID)
 	{
-		$this->tutorials_model->delCategorie($CategorieID);
+		$this->Tutorials_model->delCategorie($CategorieID);
 	}
 
 

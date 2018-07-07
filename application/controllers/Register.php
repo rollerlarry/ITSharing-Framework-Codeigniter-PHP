@@ -5,8 +5,8 @@ class Register extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('register_model');
-		$this->load->model('login_model');
+		$this->load->model('Register_model');
+		$this->load->model('Login_model');
 	}
 
 	public function index()
@@ -24,10 +24,10 @@ class Register extends CI_Controller {
 		$lastName = $this->input->post('lastname');
 
 		if ($passWord == $confirmPassWord) {
-			if($this->register_model->checkRegister($userName)){
-				$this->register_model->registerAccount($userName,$passWord,$email,$firstName,$lastName);
+			if($this->Register_model->checkRegister($userName)){
+				$this->Register_model->registerAccount($userName,$passWord,$email,$firstName,$lastName);
 
-				$dataUser = $this->login_model->getUserInfo($userName);
+				$dataUser = $this->Login_model->getUserInfo($userName);
 				$firstName = $dataUser[0]['FirstName'];
 				$lastName = $dataUser[0]['LastName'];
 

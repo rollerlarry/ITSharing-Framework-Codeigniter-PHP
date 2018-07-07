@@ -5,7 +5,7 @@ class Accounts extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('accounts_model');
+		$this->load->model('Accounts_model');
 	}
 
 	public function index()
@@ -16,7 +16,7 @@ class Accounts extends CI_Controller {
 	public function myProfile()
 	{
 		$userId =  $this->session->userdata('UserID');
-		$dataMyProfile = $this->accounts_model->getInfoMyProfile($userId);
+		$dataMyProfile = $this->Accounts_model->getInfoMyProfile($userId);
 		$dataMyProfile = array('arrayDataMyProfile' => $dataMyProfile);
 		$this->load->view('myprofile_admin_view',$dataMyProfile);
 	}
@@ -43,13 +43,13 @@ class Accounts extends CI_Controller {
 		// var_dump($about);
 		// echo '</pre>';
 
-		$this->accounts_model->updateMyProfile();
+		$this->Accounts_model->updateMyProfile();
 		redirect(base_url().'Accounts/myProfile','refresh');
 	}
 
 	public function manageAccounts()
 	{
-		$dataAccounts = $this->accounts_model->getListAccounts();
+		$dataAccounts = $this->Accounts_model->getListAccounts();
 		$dataAccounts = array('arrayDataAccounts' => $dataAccounts);
 		$this->load->view('manage_accounts_view',$dataAccounts);
 
@@ -61,18 +61,18 @@ class Accounts extends CI_Controller {
 		$firstName = $this->input->post('firstName');
 		$lastName = $this->input->post('lastName');
 		$email = $this->input->post('email'); 
-		$this->accounts_model->editAccount($userID,$firstName,$lastName,$email);
+		$this->Accounts_model->editAccount($userID,$firstName,$lastName,$email);
 	}
 
 	public function delAccount($userID)
 	{
-		$this->accounts_model->delAccount($userID);
+		$this->Accounts_model->delAccount($userID);
 		
 	}
 
 	public function detailAccount($userID)
 	{
-		$dataAccount = $this->accounts_model->getInfoAccount($userID);
+		$dataAccount = $this->Accounts_model->getInfoAccount($userID);
 		$dataAccount = array('arrayDataAccount' => $dataAccount);
 		$this->load->view('detail_account_view',$dataAccount);
 	}
@@ -145,12 +145,12 @@ class Accounts extends CI_Controller {
 
 		if($imageName == NULL){
 			$userImage = $userImageHidden;
-			$this->accounts_model->updateDetailAccount($userID,$firstName,$lastName,$email,$address,$city,$country,$postalCode,$userLevel,$about,$userImage);
+			$this->Accounts_model->updateDetailAccount($userID,$firstName,$lastName,$email,$address,$city,$country,$postalCode,$userLevel,$about,$userImage);
 			redirect(base_url().'Accounts/detailAccount/'.$userID,'refresh');
 
 		}else{ 
 			$userImage = base_url().$target_file;
-			$this->accounts_model->updateDetailAccount($userID,$firstName,$lastName,$email,$address,$city,$country,$postalCode,$userLevel,$about,$userImage);
+			$this->Accounts_model->updateDetailAccount($userID,$firstName,$lastName,$email,$address,$city,$country,$postalCode,$userLevel,$about,$userImage);
 			redirect(base_url().'Accounts/detailAccount/'.$userID,'refresh');
 		}
 
