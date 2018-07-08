@@ -58,7 +58,7 @@
                         <?php endif ?>
                       </div>
                       <h4 class="card-title">
-                        <a class="showTutorialTitle" href=""><?= $value['TutorialTitle'] ?></a>
+                        <a class="showTutorialTitle" href="<?= base_url() ?>Tutorials/detailTutorial/<?= $value['TutorialID'] ?>"><?= $value['TutorialTitle'] ?></a>
                         <input class="inputTutorialTitle form-control d-none" type="text" name="tutorialTitle" value="<?= $value['TutorialTitle'] ?>">
                       </h4>
                       <div class="card-description">

@@ -105,7 +105,6 @@
                       </div>
                       <div class="row">
                         <label class="col-sm-4 col-form-label"><span class="text-danger"> Note: Need at least one link for tutorial (Default link GGDriver)</span></label>
-                        
                       </div>
                     </div>
                     <div class="card-footer ">
@@ -122,28 +121,27 @@
     </div>
     </body>
     <script type="text/javascript">
+      function setFormValidation(id){
+        $(id).validate({
+          highlight: function(element) {
+              $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
+          },
+          success: function(element) {
+              $(element).closest('.form-group').removeClass('has-danger').addClass('has-success');
+          },
+          errorPlacement : function(error, element) {
+              $(element).append(error);
+          },
+        });
+      }
 
-  function setFormValidation(id){
-    $(id).validate({
-      highlight: function(element) {
-          $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
-      },
-      success: function(element) {
-          $(element).closest('.form-group').removeClass('has-danger').addClass('has-success');
-      },
-      errorPlacement : function(error, element) {
-          $(element).append(error);
-      },
-    });
-  }
-
-  $(document).ready(function(){
-    setFormValidation('#RegisterValidation');
-    setFormValidation('#TypeValidation');
-    setFormValidation('#LoginValidation');
-    setFormValidation('#RangeValidation');
-  });
-</script>
+      $(document).ready(function(){
+        setFormValidation('#RegisterValidation');
+        setFormValidation('#TypeValidation');
+        setFormValidation('#LoginValidation');
+        setFormValidation('#RangeValidation');
+      });
+  </script>
     <!--   Core JS Files   -->
     <?php require('widget_admin/bottom.php') ?>
   </html>

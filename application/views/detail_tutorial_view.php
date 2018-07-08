@@ -14,6 +14,7 @@
           <div class="container-fluid">
             <div class="row">
               <?php foreach ($arrayDataTutorial as $value): ?>
+
               <div class="col-md-6">
                 <div class="card">
                   <div class="card-header card-header-icon card-header-info">
@@ -32,21 +33,21 @@
                        <div class="card-body">
                           <a target="_blank" href="<?= $value['TutorialURL'] ?>"><div class="btn btn-default btn-round"><i class="fab fa-google-plus-g"></i> GGDriver</div></a>
                           <?php if ($value['TutorialURL2'] != NULL): ?>
-                            <a href=""><div class="btn btn-facebook btn-round"><i class="fas fa-share-alt"></i> Fshare</div></a>
+                            <a  target="_blank" href="<?= $value['TutorialURL2'] ?>"><div class="btn btn-facebook btn-round"><i class="fas fa-share-alt"></i> Fshare</div></a>
                           <?php endif ?>
                           <?php if ($value['TutorialURL3'] != NULL): ?>
-                            <a href=""><div class="btn btn-danger btn-round"><i class="fab fa-megaport"></i> Mega</div></a>
+                            <a  target="_blank" href="<?= $value['TutorialURL3'] ?>"><div class="btn btn-danger btn-round"><i class="fab fa-megaport"></i> Mega</div></a>
                           <?php endif ?>
                       </div>
                     </div>
-                      
                     </div>
                     <div class="card-footer"> 
-                      <button class="btn btn-warning pull-right"><span class="material-icons">edit</span> Edit Tutorial</button>
+                      <button class="btnEdit btn btn-warning pull-right"><span class="material-icons">edit</span> Edit Tutorial</button>
                       <button type="submit" data-href="<?= $value['TutorialID'] ?>" class="btnDel btn btn-danger pull-right"><span class="material-icons">delete_forever</span> Delete Tutorial</button>
                     </div>
                   </div>
                 </div>
+
                 <div class="col-md-6">
                   <div class="card card-profile">
                     <div class="card-avatar">
@@ -138,6 +139,110 @@
                     </div>
                   </div>
                 </div>
+
+                <div class="formEdit col-md-12 d-none" >
+                      <div class="card ">
+                        <div class="card-header card-header-rose card-header-text">
+                          <div class="card-text">
+                            <h4 class="card-title">EDIT Tutorial</h4>
+                          </div>
+                        </div>
+                        <div class="card-body ">
+                          <div class="row">
+                            <label class="col-sm-2 col-form-label">Tutorial Title</label>
+                            <div class="col-sm-7">
+                              <div class="form-group">
+                                <input class="form-control" type="text" name="tutorial-title" required="true" value="<?= $value['TutorialTitle'] ?>" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <label class="col-sm-2 col-form-label">Tutorial Description</label>
+                            <div class="col-sm-7">
+                              <div class="form-group">
+                                <input class="form-control" type="text" name="tutorial-description" required="true" value="<?= $value['TutorialDescription'] ?>"/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <label class="col-sm-2 col-form-label">Tutorial Image</label>
+                            <div class="col-sm-7">
+                              <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                    <div class="fileinput-new thumbnail">
+                                        <img src="<?= $value['TutorialImage'] ?>" alt="...">
+                                    </div>
+                                    <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                                    <div>
+                                        <span class="btn btn-rose btn-round btn-file">
+                                            <span class="fileinput-new">Select image</span>
+
+                                            <span class="fileinput-exists">Change</span>
+                                            <input type="file" name="tutorial-image">
+                                        </span>
+                                        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                    </div>
+                                </div>
+                                <?php if ($error = $this->session->flashdata('tutorial_image_null')): ?>
+                                  <p style="color: red">Image for the tutorial can not be empty.</p>
+                                <?php endif ?>
+                            </div>
+                          </div>
+                         
+                          <div class="row">
+                            <label class="col-sm-2 col-form-label">Link Download GGDriver(Url)</label>
+                            <div class="col-sm-7">
+                              <div class="form-group">
+                                <input class="form-control" type="text" name="tutorial-url" url="true.html" required="true" value="<?= $value['TutorialURL'] ?>"/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <label class="col-sm-2 col-form-label">Link Download Fshare(Url)</label>
+                            <div class="col-sm-7">
+                              <div class="form-group">
+                                <input class="form-control" type="text" name="tutorial-url2" url="true.html" value="<?= $value['TutorialURL2'] ?>" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <label class="col-sm-2 col-form-label">Link Download Mega(Url)</label>
+                            <div class="col-sm-7">
+                              <div class="form-group">
+                                <input class="form-control" type="text" name="tutorial-url3" url="true.html" value="<?= $value['TutorialURL3'] ?>"/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <label class="col-sm-4 col-form-label"><span class="text-danger"> Note: Need at least one link for tutorial (Default link GGDriver)</span></label>
+                          </div>
+                          <br>
+                           <div class="row">
+                            <label class="col-sm-2 col-form-label">Tutorial Categorie</label>
+                            <div class="col-sm-3">
+                              <div class="dropdown">
+                                  <select class="selectpicker" name="tutorial-categorie" data-size="7" data-style="btn btn-rose btn-round" title="Single Select">
+                                     <?php foreach ($arrayDataCategories as $value): ?>
+                                      <option class="dropdown-item" value="<?= $value['CategorieID'] ?>"><?= $value['CategorieName'] ?></option>
+                                      <?php endforeach ?>
+                                  </select>
+                                   <a class="btn btn-link btn-twitter" href="<?= base_url() ?>Tutorials/manageCategories"><span class="material-icons">add</span> NEW Categorie</a>
+                                  <?php if ($error = $this->session->flashdata('categorie_null')): ?>
+                                    <p style="color: red">Categorie for the tutorial can not be empty.</p>
+                                  <?php endif ?>
+                              </div>
+                            </div>
+                            <div class="col-sm-3">
+                           </div>
+                          </div>
+                        </div>
+                        <div class="card-footer ">
+                            <a href="#" ></a>
+                            <button class="btnSave btn btn-fill btn-success"><span class="material-icons">save</span> Save Changes</button>
+                          </div>
+                      </div>
+                  </div>
+
+                
                 <?php endforeach ?>
               </div>
             </div>
@@ -183,6 +288,17 @@
                 }).catch(swal.noop)
               event.preventDefault();
               /* Act on the event */
+            });
+            $('body').on('click', '.btnEdit', function(event) {
+              $('.col-md-6').addClass('d-none');
+              $('.formEdit').removeClass('d-none');
+
+            });
+
+            $('body').on('click', '.btnSave', function(event) {
+              $('.col-md-6').removeClass('d-none');
+              $('.formEdit').addClass('d-none');
+
             });
           </script>
           <!--   Core JS Files   -->

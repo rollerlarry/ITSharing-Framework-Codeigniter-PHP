@@ -40,6 +40,7 @@ class Tutorials extends CI_Controller {
 		$this->load->view('add_tutorial_view',$dataCategorie);
 	}
 
+
 	public function addNewTutorial()
 	{
 		$userID = $this->session->userdata('UserID');
@@ -114,16 +115,22 @@ class Tutorials extends CI_Controller {
 
 	public function detailTutorial($tutorialID)
 	{
-		$dataTutorial = $this->Tutorials_model->getInfoDetailTutorial($tutorialID);
+		if (empty($tutorialID)) {
+			redirect(base_url().'Tutorials/manageTutorials','refresh');
+		}else{
+			$dataTutorial = $this->Tutorials_model->getInfoDetailTutorial($tutorialID);
 
-		$userID = $this->Tutorials_model->getUserIDUploadTutorial($tutorialID);
-		$userID = $userID[0]['UserID'];
+			$userID = $this->Tutorials_model->getUserIDUploadTutorial($tutorialID);
+			$userID = $userID[0]['UserID'];
 
-		$dataListTutorials = $this->Tutorials_model->getListTutorialsForUser($userID,$tutorialID);
+			$dataListTutorials = $this->Tutorials_model->getListTutorialsForUser($userID,$tutorialID);
 
-		$dataTutorial = array('arrayDataTutorial' => $dataTutorial,'arrayDataTutorialForUser' => $dataListTutorials);
+			$dataCategorie = $this->Tutorials_model->getListCategories();
 
-		$this->load->view('detail_tutorial_view',$dataTutorial);
+			$dataTutorial = array('arrayDataTutorial' => $dataTutorial,'arrayDataCategories' => $dataCategorie ,'arrayDataTutorialForUser' => $dataListTutorials);
+
+			$this->load->view('detail_tutorial_view',$dataTutorial);
+		}
 	}
 
 	public function privateTutorial($tutorialID)
