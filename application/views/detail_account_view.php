@@ -164,7 +164,7 @@
                         <div class="col-sm-8">
                           <div class="form-group">
                             <div class="form-group bmd-form-group">
-                              <textarea class="form-control" name="about" rows="5"></textarea>
+                              <textarea class="form-control" name="about" rows="5"><?= $value['About'] ?></textarea>
                             </div>
                           </div>
                         </div>

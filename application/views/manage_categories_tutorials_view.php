@@ -3,6 +3,7 @@
   
   <!-- Mirrored from demos.creative-tim.com/material-dashboard-pro/examples/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Apr 2018 09:36:34 GMT -->
   <?php require('widget_admin/header.php') ?>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <body class="">
     <div class="wrapper">
       <?php require('widget_admin/siderbar.php') ?>
@@ -30,7 +31,105 @@
                             <input type="text" id="categorieName" class="form-control" name="categorieName">
                           </div>
                         </form>
+                        <br><br>
+                        <label class="text">Categorie Icon</label>
+                        <div class="col-sm-10 checkbox-radios">
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="categorieIcon" value="<i class='fab fa-5x fa-html5'></i>HTML" checked="">
+                              <i class="fab fa-3x fa-html5"></i>HTML
+                              <span class="circle">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="categorieIcon" value="<i class='fab fa-5x fa-css3-alt'></i>CSS">
+                              <i class="fab fa-3x fa-css3-alt"></i>CSS
+                              <span class="circle">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="categorieIcon" value="<i class='fab fa-5x fa-android'></i>Android">
+                              <i class="fab fa-3x fa-android"></i>Android
+                              <span class="circle">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="categorieIcon" value="<i class='fab fa-5x fa-node'></i>NodeJS">
+                              <i class="fab fa-3x fa-node"></i>NodeJS
+                              <span class="circle">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="categorieIcon" value="<i class='fab fa-5x fa-js'></i>JavaScript">
+                              <i class="fab fa-3x fa-js"></i>JavaScript
+                              <span class="circle">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+
+                          </div>
+                          <br>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="categorieIcon" value="<i class='fas fa-5x fa-database'></i>Database">
+                              <i class="fas fa-3x fa-database"></i>Database
+                              <span class="circle">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="categorieIcon" value="<i class='fab fa-5x fa-java'></i>Java">
+                              <i class="fab fa-3x fa-java"></i>Java
+                              <span class="circle">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="categorieIcon" value="<i class='fab fa-5x fa-app-store-ios'></i>iOS">
+                              <i class="fab fa-3x fa-app-store-ios"></i>iOS
+                              <span class="circle">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="categorieIcon" value="<i class='fab fa-5x fa-php'></i>PHP">
+                              <i class="fab fa-3x fa-php"></i>PHP
+                              <span class="circle">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="categorieIcon" value="<i class='fab fa-5x fa-python'></i>Python">
+                              <i class="fab fa-3x fa-python"></i>Python
+                              <span class="circle">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                          </div>
+                          <br>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="categorieIcon" value="<i class='fab fa-5x fa-wordpress'></i>WordPress">
+                              <i class="fab fa-3x fa-wordpress"></i>WordPress
+                              <span class="circle">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="categorieIcon" value="<i class='fas fa-5x fa-bold'></i></i>Bootstrap">
+                              <i class="fas fa-3x fa-bold"></i></i>Bootstrap
+                              <span class="circle">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                          </div>
+                        </div>
                       </div>
+
                       <div class="card-footer ">
                         <a href="<?= base_url() ?>Tutorials/addTutorial" class="btn btn-fill btn-info"><span class="material-icons">arrow_back_ios</span> Back AddNEW Tutorials</a>
                         <button class="btnAdd btn btn-fill btn-info"><span class="material-icons">playlist_add</span> AddNew</button>
@@ -280,9 +379,12 @@
                 $('.btnAdd').click(function(event) {
 
                   valueCategorieName = $('#categorieName').val();
+                  categorieIcon = $('input[name=categorieIcon]:checked').val();
+
+                  console.log(categorieIcon);
                       
                   if (valueCategorieName == '') {
-swal({
+                swal({
                 title: "Something wrong",
                 text: "Categorie name not empty",
                 buttonsStyling: false,
@@ -295,7 +397,8 @@ swal({
                     type: 'POST',
                     dataType: 'json',
                     data: {
-                      categorieName: $('#categorieName').val()
+                      categorieName: $('#categorieName').val(),
+                      categorieIcon: categorieIcon,
                     },
                     })
                     .done(function() {

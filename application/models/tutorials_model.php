@@ -20,7 +20,7 @@ class Tutorials_model extends CI_Model {
 		return $dataTutorials = $dataTutorials->result_array();
 	}
 
-	public function insertTutorial($userID,$tutorialTitle,$tutorialDescription,$tutorialImage,$tutorialCategorie,$tutorialUrl,$tutorialUrl2,$tutorialUrl3)
+	public function insertTutorial($userID,$tutorialTitle,$tutorialDescription,$tutorialImage,$tutorialCategorie,$tutorialUrl,$tutorialUrl2,$tutorialUrl3,$tutorialLanguage,$tutorialLevel)
 	{
 		$dataTutorial = array(
 			'UserID' => $userID,
@@ -31,9 +31,28 @@ class Tutorials_model extends CI_Model {
 			'TutorialURL' => $tutorialUrl,
 			'TutorialURL2' => $tutorialUrl2,
 			'TutorialURL3' => $tutorialUrl3,
+			'TutorialLanguage' => $tutorialLanguage,
+			'TutorialLevel' => $tutorialLevel
 		);
 
 		return $this->db->insert('tbtutorials', $dataTutorial);
+	}
+
+	public function updateTutorial($tutorialID,$tutorialTitle,$tutorialDescription,$tutorialURL,$tutorialURL2,$tutorialURL3,$tutorialCategorie,$tutorialLanguage,$tutorialLevel)
+	{
+		$dataUpdateTutorial = array(
+			'TutorialTitle' => $tutorialTitle,
+			'TutorialDescription' => $tutorialDescription,
+			'TutorialURL' => $tutorialURL,
+			'TutorialURL2' => $tutorialURL2,
+			'TutorialURL3' => $tutorialURL3,
+			'TutorialLanguage' => $tutorialLanguage,
+			'TutorialLevel' => $tutorialLevel,
+			'CategorieID' => $tutorialCategorie,
+		);
+		
+		$this->db->where('TutorialID', $tutorialID);
+		return $this->db->update('tbtutorials', $dataUpdateTutorial);
 	}
 
 	public function privateTutorial($tutorialID)
@@ -141,10 +160,11 @@ class Tutorials_model extends CI_Model {
 
 	//Categories
 
-	public function insertCategorie($categorieName)
+	public function insertCategorie($categorieName,$categorieIcon)
 	{
 		$dataCategorie = array(
-			'CategorieName' => $categorieName
+			'CategorieName' => $categorieName,
+			'CategorieIcon' => $categorieIcon
 		);
 
 		return $this->db->insert('tbcategorietutorials ', $dataCategorie);

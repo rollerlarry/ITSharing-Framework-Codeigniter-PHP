@@ -37,4 +37,10 @@
     <?php else: ?>
         <?php redirect(base_url().'Login','refresh') ?>
     <?php endif ?>
+
+    <?php if ($this->session->has_userdata('UserLevel')): ?>
+       
+    <?php else: ?>
+        <?php redirect(base_url().'Home','refresh') ?>
+    <?php endif ?>
   </head>

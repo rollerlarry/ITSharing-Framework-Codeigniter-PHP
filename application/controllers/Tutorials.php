@@ -50,8 +50,9 @@ class Tutorials extends CI_Controller {
 		$tutorialUrl2 = $this->input->post('tutorial-url2');
 		$tutorialUrl3 = $this->input->post('tutorial-url3');
 		$tutorialCategorie = $this->input->post('tutorial-categorie');
+		$tutorialLanguage = $this->input->post('tutorialLanguage');
+		$tutorialLevel = $this->input->post('tutorialLevel');
 
-		
 
 		$target_dir = "uploads/";
 		$target_file = $target_dir . basename($_FILES["tutorial-image"]["name"]);
@@ -107,13 +108,39 @@ class Tutorials extends CI_Controller {
 				$this->session->set_flashdata('categorie_null', 'Invalid tutorial');
 				redirect(base_url().'Tutorials/addTutorial','refresh');
 			}else{
-				$this->Tutorials_model->insertTutorial($userID,$tutorialTitle,$tutorialDescription,$tutorialImage,$tutorialCategorie,$tutorialUrl,$tutorialUrl2,$tutorialUrl3);
+				$this->Tutorials_model->insertTutorial($userID,$tutorialTitle,$tutorialDescription,$tutorialImage,$tutorialCategorie,$tutorialUrl,$tutorialUrl2,$tutorialUrl3,$tutorialLanguage,$tutorialLevel);
 			redirect(base_url().'Tutorials/manageTutorials','refresh');
 			}
 		}
 	}
 
-	public function detailTutorial($tutorialID)
+	public function editTutorial($tutorialID)
+	{
+		
+		$tutorialTitle = $this->input->post('tutorialTitle');
+		$tutorialDescription = $this->input->post('tutorialDescription');
+		$tutorialURL = $this->input->post('tutorialURL');
+		$tutorialURL2 = $this->input->post('tutorialURL2');
+		$tutorialURL3 = $this->input->post('tutorialURL3');
+		$tutorialCategorie = $this->input->post('categorieID');
+		$tutorialLanguage = $this->input->post('tutorialLanguage');
+		$tutorialLevel = $this->input->post('tutorialLevel');
+
+		$this->Tutorials_model->updateTutorial($tutorialID,$tutorialTitle,$tutorialDescription,$tutorialURL,$tutorialURL2,$tutorialURL3,$tutorialCategorie,$tutorialLanguage,$tutorialLevel);
+
+		// echo '<pre>';
+		// var_dump($tutorialTitle);
+		// var_dump($tutorialDescription);
+		// var_dump($tutorialURL);
+		// var_dump($tutorialURL2);
+		// var_dump($tutorialURL3);
+		// var_dump($tutorialCategorie);
+		// var_dump($tutorialLanguage);
+		// var_dump($tutorialLevel);
+		// echo '</pre>';
+	}
+
+	public function detailTutorial($tutorialID=NULL)
 	{
 		if (empty($tutorialID)) {
 			redirect(base_url().'Tutorials/manageTutorials','refresh');
@@ -186,7 +213,8 @@ class Tutorials extends CI_Controller {
 	public function addCategorie()
 	{
 		$categorieName = $this->input->post('categorieName');
-		$this->Tutorials_model->insertCategorie($categorieName);
+		$categorieIcon = $this->input->post('categorieIcon');
+		$this->Tutorials_model->insertCategorie($categorieName,$categorieIcon);
 
 		echo json_encode($this->db->insert_id());
 

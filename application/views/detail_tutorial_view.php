@@ -148,11 +148,13 @@
                           </div>
                         </div>
                         <div class="card-body ">
+                          <form method="POST" action="<?= base_url() ?>Tutorials/editTutorial/<?= $value['TutorialID'] ?>">
                           <div class="row">
                             <label class="col-sm-2 col-form-label">Tutorial Title</label>
                             <div class="col-sm-7">
                               <div class="form-group">
-                                <input class="form-control" type="text" name="tutorial-title" required="true" value="<?= $value['TutorialTitle'] ?>" />
+                                <input class="tutorialTitle form-control" type="text" name="tutorialTitle" required="true" value="<?= $value['TutorialTitle'] ?>" />
+                                <input type="text" name="tutorialID" class="tutorialID d-none" value="<?= $value['TutorialID'] ?>">
                               </div>
                             </div>
                           </div>
@@ -160,7 +162,7 @@
                             <label class="col-sm-2 col-form-label">Tutorial Description</label>
                             <div class="col-sm-7">
                               <div class="form-group">
-                                <input class="form-control" type="text" name="tutorial-description" required="true" value="<?= $value['TutorialDescription'] ?>"/>
+                                <input class="tutorialDescription form-control" type="text" name="tutorialDescription" required="true" value="<?= $value['TutorialDescription'] ?>"/>
                               </div>
                             </div>
                           </div>
@@ -187,12 +189,65 @@
                                 <?php endif ?>
                             </div>
                           </div>
-                         
+                          <div class="row">
+                            <label class="col-sm-2 col-form-label">Tutorial Language</label>
+                            <div class="col-sm-7">
+                              <div class="form-group">
+                                <div class="col-sm-10 checkbox-radios">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input class="tutorialLanguage form-check-input" type="radio" name="tutorialLanguage" value="English" checked="">
+                                      English
+                                      <span class="circle">
+                                        <span class="check"></span>
+                                      </span>
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input class="tutorialLanguage form-check-input" type="radio" name="tutorialLanguage" value="Vietnamese">
+                                      Vietnamese
+                                      <span class="circle">
+                                        <span class="check"></span>
+                                      </span>
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <label class="col-sm-2 col-form-label">Tutorial Levels</label>
+                            <div class="col-sm-7">
+                              <div class="form-group">
+                                <div class="col-sm-10 checkbox-radios">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input class="tutorialLevel form-check-input" type="radio" name="tutorialLevel" value="Basic" checked="">
+                                      Basic
+                                      <span class="circle">
+                                        <span class="check"></span>
+                                      </span>
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input class="tutorialLevel form-check-input" type="radio" name="tutorialLevel" value="Advance">
+                                      Advance
+                                      <span class="circle">
+                                        <span class="check"></span>
+                                      </span>
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                           <div class="row">
                             <label class="col-sm-2 col-form-label">Link Download GGDriver(Url)</label>
                             <div class="col-sm-7">
                               <div class="form-group">
-                                <input class="form-control" type="text" name="tutorial-url" url="true.html" required="true" value="<?= $value['TutorialURL'] ?>"/>
+                                <input class="tutorialURL form-control" type="text" name="tutorialURL" url="true.html" required="true" value="<?= $value['TutorialURL'] ?>"/>
                               </div>
                             </div>
                           </div>
@@ -200,7 +255,7 @@
                             <label class="col-sm-2 col-form-label">Link Download Fshare(Url)</label>
                             <div class="col-sm-7">
                               <div class="form-group">
-                                <input class="form-control" type="text" name="tutorial-url2" url="true.html" value="<?= $value['TutorialURL2'] ?>" />
+                                <input class="tutorialURL2 form-control" type="text" name="tutorialURL2" url="true.html" value="<?= $value['TutorialURL2'] ?>" />
                               </div>
                             </div>
                           </div>
@@ -208,7 +263,7 @@
                             <label class="col-sm-2 col-form-label">Link Download Mega(Url)</label>
                             <div class="col-sm-7">
                               <div class="form-group">
-                                <input class="form-control" type="text" name="tutorial-url3" url="true.html" value="<?= $value['TutorialURL3'] ?>"/>
+                                <input class="tutorialURL3 form-control" type="text" name="tutorialURL3" url="true.html" value="<?= $value['TutorialURL3'] ?>"/>
                               </div>
                             </div>
                           </div>
@@ -220,7 +275,7 @@
                             <label class="col-sm-2 col-form-label">Tutorial Categorie</label>
                             <div class="col-sm-3">
                               <div class="dropdown">
-                                  <select class="selectpicker" name="tutorial-categorie" data-size="7" data-style="btn btn-rose btn-round" title="Single Select">
+                                  <select class="categorieID selectpicker" name="categorieID" data-size="7" data-style="btn btn-rose btn-round" title="<?= $value['CategorieName'] ?>" value="<?= $value['CategorieID'] ?>">
                                      <?php foreach ($arrayDataCategories as $value): ?>
                                       <option class="dropdown-item" value="<?= $value['CategorieID'] ?>"><?= $value['CategorieName'] ?></option>
                                       <?php endforeach ?>
@@ -235,14 +290,14 @@
                            </div>
                           </div>
                         </div>
+                         </form>
                         <div class="card-footer ">
                             <a href="#" ></a>
                             <button class="btnSave btn btn-fill btn-success"><span class="material-icons">save</span> Save Changes</button>
                           </div>
                       </div>
+                     
                   </div>
-
-                
                 <?php endforeach ?>
               </div>
             </div>
@@ -296,8 +351,54 @@
             });
 
             $('body').on('click', '.btnSave', function(event) {
-              $('.col-md-6').removeClass('d-none');
-              $('.formEdit').addClass('d-none');
+              // $('.col-md-6').removeClass('d-none');
+              // $('.formEdit').addClass('d-none');
+              tutorialTitle = $('.tutorialTitle').val();
+              tutorialDescription = $('.tutorialDescription').val();
+              tutorialURL = $('.tutorialURL').val();
+              tutorialURL2 = $('.tutorialURL2').val();
+              tutorialURL3 = $('.tutorialURL3').val();
+              tutorialLanguage = $('input[name=tutorialLanguage]:checked').val();
+              tutorialLevel = $('input[name=tutorialLevel]:checked').val();
+              categorieID = $('.categorieID option:selected').val();
+              tutorialID = $('.tutorialID').val();
+
+              // console.log(tutorialTitle);
+              // console.log(tutorialDescription);
+              // console.log(tutorialURL);
+              // console.log(tutorialURL2);
+              // console.log(tutorialURL3);
+              // console.log(tutorialLanguage);
+              // console.log(tutorialLevel);
+              // console.log(categorieID);
+
+
+              $.ajax({
+                url: '<?= base_url() ?>Tutorials/editTutorial/'+tutorialID,
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                  tutorialTitle: tutorialTitle,
+                  tutorialDescription: tutorialDescription,
+                  tutorialURL: tutorialURL,
+                  tutorialURL2: tutorialURL2,
+                  tutorialURL3: tutorialURL3,
+                  tutorialLanguage: tutorialLanguage,
+                  tutorialLevel: tutorialLevel,
+                  categorieID: categorieID,
+                },
+              })
+              .done(function() {
+                //console.log("success");
+              })
+              .fail(function() {
+                //console.log("error");
+              })
+              .always(function() {
+                //console.log("complete");
+              });
+              swal("Good job!", "You clicked the button!", "success");
+              
 
             });
           </script>

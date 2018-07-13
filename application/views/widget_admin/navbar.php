@@ -42,7 +42,7 @@
                   </div>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#pablo">
+                  <a class="nav-link" href="<?= base_url() ?>Home">
                     <i class="material-icons">subdirectory_arrow_right</i>
                     <p>
                       <span class="d-lg-none d-md-block">Account</span>

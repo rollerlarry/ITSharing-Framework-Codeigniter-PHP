@@ -3,6 +3,7 @@
   
   <!-- Mirrored from demos.creative-tim.com/material-dashboard-pro/examples/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Apr 2018 09:36:34 GMT -->
   <?php require('widget_admin/header.php') ?>
+  <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
   <body class="">
     <div class="wrapper">
       <?php require('widget_admin/siderbar.php') ?>
@@ -27,6 +28,7 @@
                         <div class="col-sm-7">
                           <div class="form-group">
                             <input class="form-control" type="text" name="tutorial-title" required="true" />
+                            <p id="showNotification" class="text-danger d-none"></p>
                           </div>
                         </div>
                       </div>
@@ -51,7 +53,7 @@
                                         <span class="fileinput-new">Select image</span>
 
                                         <span class="fileinput-exists">Change</span>
-                                        <input type="file" name="tutorial-image">
+                                        <input class="inputImage" type="file" name="tutorial-image">
                                     </span>
                                     <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                 </div>
@@ -80,6 +82,62 @@
                        </div>
                       </div>
                       <div class="row">
+                        <label class="col-sm-2 col-form-label">Tutorial Language</label>
+                        <div class="col-sm-7">
+                          <div class="form-group">
+                            <div class="col-sm-10 checkbox-radios">
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input class="form-check-input" type="radio" name="tutorialLanguage" value="English" checked="">
+                                  English
+                                  <span class="circle">
+                                    <span class="check"></span>
+                                  </span>
+                                </label>
+                              </div>
+                              <br>
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input class="form-check-input" type="radio" name="tutorialLanguage" value="Vietnamese">
+                                  Vietnamese
+                                  <span class="circle">
+                                    <span class="check"></span>
+                                  </span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <label class="col-sm-2 col-form-label">Tutorial Levels</label>
+                        <div class="col-sm-7">
+                          <div class="form-group">
+                            <div class="col-sm-10 checkbox-radios">
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input class="form-check-input" type="radio" name="tutorialLevel" value="Basic" checked="">
+                                  Basic
+                                  <span class="circle">
+                                    <span class="check"></span>
+                                  </span>
+                                </label>
+                              </div>
+                              <br>
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input class="form-check-input" type="radio" name="tutorialLevel" value="Advance">
+                                  Advance
+                                  <span class="circle">
+                                    <span class="check"></span>
+                                  </span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
                         <label class="col-sm-2 col-form-label">Link Download GGDriver(Url)</label>
                         <div class="col-sm-7">
                           <div class="form-group">
@@ -99,7 +157,7 @@
                         <label class="col-sm-2 col-form-label">Link Download Mega(Url)</label>
                         <div class="col-sm-7">
                           <div class="form-group">
-                            <input class="form-control" type="text" name="tutorial-url3" url="true.html"/>
+                            <input class="form-control" type="text" name="tutorial-url3" url="true.html" />
                           </div>
                         </div>
                       </div>
@@ -120,28 +178,32 @@
       </div>
     </div>
     </body>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
     <script type="text/javascript">
       function setFormValidation(id){
         $(id).validate({
           highlight: function(element) {
-              $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
+            $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
           },
           success: function(element) {
-              $(element).closest('.form-group').removeClass('has-danger').addClass('has-success');
+            $(element).closest('.form-group').removeClass('has-danger').addClass('has-success');
           },
           errorPlacement : function(error, element) {
-              $(element).append(error);
+            $(element).append(error);
           },
         });
       }
-
       $(document).ready(function(){
-        setFormValidation('#RegisterValidation');
         setFormValidation('#TypeValidation');
-        setFormValidation('#LoginValidation');
-        setFormValidation('#RangeValidation');
+        
       });
-  </script>
+
+      $(this).on('click', '.btnAdd', function(event) {
+        console.log('123');
+      });
+    </script>
     <!--   Core JS Files   -->
     <?php require('widget_admin/bottom.php') ?>
   </html>

@@ -38,7 +38,7 @@
                   <div class="card card-product">
                     <div class="card-header card-header-image" data-header-animation="true">
                       <a href="#pablo">
-                        <img class="img" src="<?= $value['TutorialImage'] ?>">
+                        <img class="img" style="height: 300px" src="<?= $value['TutorialImage'] ?>">
                       </a>
                     </div>
                     <div class="card-body">
