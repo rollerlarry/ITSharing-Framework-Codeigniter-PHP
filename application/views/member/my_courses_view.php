@@ -107,19 +107,19 @@
 	                                                    <p class="card-title">Download below</p>
 	                                                    <br>
 	                                                    <?php if ($this->session->has_userdata('UserID')): ?>
-	                                                    	<?php if ($value['TutorialURL'] != NULL): ?>
-	                                                    		<a target="_blank" href="<?= $value['TutorialURL'] ?>" class="btn btn-round btn-twitter">
-			                                                        <i class="fa fa-twitter"></i> GGDriver
+	                                                    	<?php if ($value['TutorialURL'] != ""): ?>
+	                                                    		<a target="_blank" href="<?= $value['TutorialURL'] ?>" class="btn btn-round">
+			                                                        <i class="fa fa-google"></i> GGDriver
 			                                                    </a>
 	                                                    	<?php endif ?>
 
-	                                                    	<?php if ($value['TutorialURL'] != NULL): ?>
+	                                                    	<?php if ($value['TutorialURL2'] != ""): ?>
 	                                                    		<a target="_blank" href="<?= $value['TutorialURL2'] ?>" class="btn btn-round btn-dribbble">
 			                                                        <i class="fa fa-dribbble"></i> Mega
 			                                                    </a>
 	                                                    	<?php endif ?>
 
-	                                                    	<?php if ($value['TutorialURL'] != NULL): ?>
+	                                                    	<?php if ($value['TutorialURL3'] != ""): ?>
 	                                                    		<a target="_blank" href="<?= $value['TutorialURL3'] ?>" class="btn btn-round btn-facebook">
 			                                                        <i class="fa fa-facebook"></i> Fshare
 			                                                    </a>
