@@ -178,6 +178,17 @@
       </div>
     </div>
     </body>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <?php if ($error = $this->session->flashdata('not_type')): ?>
+        <script>
+          swal("Something wrong!", "Sorry, only JPG, JPEG, PNG & GIF files are allowed.", "error");
+        </script>
+    <?php endif ?>
+    <?php if ($error = $this->session->flashdata('file_to_large')): ?>
+        <script>
+          swal("Something wrong!", "Sorry, your file is too large.", "error");
+        </script>
+    <?php endif ?>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>

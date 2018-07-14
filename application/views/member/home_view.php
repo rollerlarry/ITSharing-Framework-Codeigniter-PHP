@@ -48,7 +48,7 @@
 	                            <div class="col-md-6 col-lg-6">
 	                                <div class="rotating-card-container manual-flip" style="height: 442px; margin-bottom: 30px;">
 	                                    <div class="card card-rotate">
-	                                        <div class="front" style="height: 650px; width: 400px;">
+	                                        <div class="front" style="height: 700px; width: 400px;">
 	                                            <div class="card-body">
 	                                                <img class="card-img-top img-thumbnail" style="height: 275px" src="<?= $value['TutorialImage'] ?>" alt="Card image cap">
 	                                                <h4 class="card-title">

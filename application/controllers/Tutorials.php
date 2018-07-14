@@ -69,13 +69,13 @@ class Tutorials extends CI_Controller {
 		        $uploadOk = 0;
 		    }
 		}
-		// Check if file already exists
-		if (file_exists($target_file)) {
-		    //echo "Sorry, file already exists.";
-		    $uploadOk = 0;
-		}
+		// // Check if file already exists
+		// if (file_exists($target_file)) {
+		//     //echo "Sorry, file already exists.";
+		//     $uploadOk = 0;
+		// }
 		// Check file size
-		if ($_FILES["tutorial-image"]["size"] > 500000) {
+		if ($_FILES["tutorial-image"]["size"] > 5000000) {
 		    //echo "Sorry, your file is too large.";
 		    $this->session->set_flashdata('file_to_large', 'Invalid tutorial');
 		    $uploadOk = 0;
@@ -99,18 +99,21 @@ class Tutorials extends CI_Controller {
 		    }
 		}
 		$tutorialImage = base_url().$target_file;
-
-		if(basename($_FILES["tutorial-image"]["name"]) == NULL){
-			$this->session->set_flashdata('tutorial_image_null', 'Invalid tutorial');
-			redirect(base_url().'Tutorials/addTutorial','refresh');
-		}else{
-			if ($tutorialCategorie == NULL) {
-				$this->session->set_flashdata('categorie_null', 'Invalid tutorial');
+		if($uploadOk == 1){
+			if(basename($_FILES["tutorial-image"]["name"]) == NULL){
+				$this->session->set_flashdata('tutorial_image_null', 'Invalid tutorial');
 				redirect(base_url().'Tutorials/addTutorial','refresh');
 			}else{
-				$this->Tutorials_model->insertTutorial($userID,$tutorialTitle,$tutorialDescription,$tutorialImage,$tutorialCategorie,$tutorialUrl,$tutorialUrl2,$tutorialUrl3,$tutorialLanguage,$tutorialLevel);
-			redirect(base_url().'Tutorials/manageTutorials','refresh');
+				if ($tutorialCategorie == NULL) {
+					$this->session->set_flashdata('categorie_null', 'Invalid tutorial');
+					redirect(base_url().'Tutorials/addTutorial','refresh');
+				}else{
+					$this->Tutorials_model->insertTutorial($userID,$tutorialTitle,$tutorialDescription,$tutorialImage,$tutorialCategorie,$tutorialUrl,$tutorialUrl2,$tutorialUrl3,$tutorialLanguage,$tutorialLevel);
+				redirect(base_url().'Tutorials/manageTutorials','refresh');
+				}
 			}
+		}else{
+			redirect(base_url().'Tutorials/addTutorial','refresh');
 		}
 	}
 
@@ -128,16 +131,6 @@ class Tutorials extends CI_Controller {
 
 		$this->Tutorials_model->updateTutorial($tutorialID,$tutorialTitle,$tutorialDescription,$tutorialURL,$tutorialURL2,$tutorialURL3,$tutorialCategorie,$tutorialLanguage,$tutorialLevel);
 
-		// echo '<pre>';
-		// var_dump($tutorialTitle);
-		// var_dump($tutorialDescription);
-		// var_dump($tutorialURL);
-		// var_dump($tutorialURL2);
-		// var_dump($tutorialURL3);
-		// var_dump($tutorialCategorie);
-		// var_dump($tutorialLanguage);
-		// var_dump($tutorialLevel);
-		// echo '</pre>';
 	}
 
 	public function detailTutorial($tutorialID=NULL)
@@ -184,6 +177,7 @@ class Tutorials extends CI_Controller {
 
 		$this->Tutorials_model->updateFastEdit($tutorialID,$tutorialTitle,$tutorialDescription);
 	}
+	
 
 
 

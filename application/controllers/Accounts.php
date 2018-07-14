@@ -10,7 +10,7 @@ class Accounts extends CI_Controller {
 
 	public function index()
 	{
-		
+		$this->load->view('register_success_view');
 	}
 
 	public function myProfile()
@@ -35,9 +35,77 @@ class Accounts extends CI_Controller {
 			$postalCode = $this->input->post('postalCode');
 			$about = $this->input->post('about');
 
+			$userImageHidden = $this->input->post('userImageHidden');
 
-			$this->Accounts_model->updateMyProfile($userID,$firstName,$lastName,$email,$address,$city,$country,$postalCode,$about);
-			redirect(base_url().'Accounts/myProfile','refresh');
+			$target_dir = "uploads/avatar/";
+			$target_file = $target_dir . basename($_FILES["userImage"]["name"]);
+			$uploadOk = 1;
+			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+			if(isset($_POST["submit"])) {
+			    $check = getimagesize($_FILES["userImage"]["tmp_name"]);
+			    if($check !== false) {
+			        //echo "File is an image - " . $check["mime"] . ".";
+			        $uploadOk = 1;
+			    } else {
+			        //echo "File is not an image.";
+			        $uploadOk = 0;
+			    }
+			}
+			// Check if file already exists
+			if (file_exists($target_file)) {
+			    //echo "Sorry, file already exists.";
+			    $uploadOk = 0;
+			}
+			// Check file size
+			if ($_FILES["userImage"]["size"] > 500000) {
+			    //echo "Sorry, your file is too large.";
+			    $uploadOk = 0;
+			}
+			// Allow certain file formats
+			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+			&& $imageFileType != "gif" ) {
+			    //echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+			    $uploadOk = 0;
+			}
+			// Check if $uploadOk is set to 0 by an error
+			if ($uploadOk == 0) {
+			    //echo "Sorry, your file was not uploaded.";
+			// if everything is ok, try to upload file
+			} else {
+			    if (move_uploaded_file($_FILES["userImage"]["tmp_name"], $target_file)) {
+			        //echo "The file ". basename( $_FILES["userImage"]["name"]). " has been uploaded.";
+			    } else {
+			        //echo "Sorry, there was an error uploading your file.";
+			    }
+			}
+			
+			$imageName = basename($_FILES["userImage"]["name"]);
+
+			if($imageName == NULL){
+				$userImage = $userImageHidden;
+				$this->Accounts_model->updateMyProfile($userID,$firstName,$lastName,$email,$address,$city,$country,$postalCode,$about,$userImage);
+				$sessionData = array(
+					'FirstName' => $firstName,
+					'LastName' => $lastName
+				);
+				$this->session->set_userdata($sessionData);
+				$this->session->set_flashdata('update_profile_success', 'Update success');
+				redirect(base_url().'Accounts/myProfile','refresh');
+
+
+			}else{ 
+				$userImage = base_url().$target_file;
+				$this->Accounts_model->updateMyProfile($userID,$firstName,$lastName,$email,$address,$city,$country,$postalCode,$about,$userImage);
+				$sessionData = array(
+					'UserImage' => $userImage,
+					'FirstName' => $firstName,
+					'LastName' => $lastName
+				);
+				$this->session->set_userdata($sessionData);
+				$this->session->set_flashdata('update_profile_success', 'Update success');
+				redirect(base_url().'Accounts/myProfile','refresh');
+			}
 		}
 		
 	}
@@ -78,7 +146,6 @@ class Accounts extends CI_Controller {
 
 	public function editDetailAccount($userID)
 	{
-
 		if(empty($userID)){
 			
 		}else{
@@ -143,20 +210,20 @@ class Accounts extends CI_Controller {
 			if($imageName == NULL){
 				$userImage = $userImageHidden;
 				$this->Accounts_model->updateDetailAccount($userID,$firstName,$lastName,$email,$address,$city,$country,$postalCode,$userLevel,$about,$userImage);
+				$this->session->set_flashdata('update_account_success', 'Update success');
 				redirect(base_url().'Accounts/detailAccount/'.$userID,'refresh');
 
 			}else{ 
 				$userImage = base_url().$target_file;
+				$this->session->set_flashdata('update_account_success', 'Update success');
 				$this->Accounts_model->updateDetailAccount($userID,$firstName,$lastName,$email,$address,$city,$country,$postalCode,$userLevel,$about,$userImage);
 				redirect(base_url().'Accounts/detailAccount/'.$userID,'refresh');
 			}
 		}
 	}
 
-	public function createAccount()
-	{
-		$this->load->view('create_account_view');
-	}
+
+
 
 }
 

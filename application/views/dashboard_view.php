@@ -12,10 +12,6 @@
         <!-- End Navbar -->
         <div class="content">
           <div class="container-fluid">
-            
-            <!-- <button type="button" class="btn btn-round btn-default dropdown-toggle btn-link" data-toggle="dropdown">
-            7 days
-            </button> -->
             <div class="row">
               <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="card card-stats">

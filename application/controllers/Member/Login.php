@@ -50,15 +50,15 @@ class Login extends CI_Controller {
 					redirect(base_url().'Dashboard','refresh');
 				}else{
 					$this->session->set_userdata($sessionDataTwo);
-					redirect(base_url().'Home','refresh');
+					redirect(base_url(),'refresh');
 				}
 			}else{
 				$this->session->set_flashdata('account_lock', 'Invalid account');
-				redirect(base_url().'Home','refresh');
+				redirect(base_url(),'refresh');
 			}
 		}else{
 			$this->session->set_flashdata('login_error', 'Invalid username');
-			redirect(base_url().'Home','refresh');
+			redirect(base_url(),'refresh');
 		}
 	}
 	public function logoutAccount()
@@ -71,7 +71,7 @@ class Login extends CI_Controller {
 			'UserLevel' 
 		);
 		$this->session->unset_userdata($sessionData);
-		redirect(base_url().'Home','refresh');
+		redirect(base_url(),'refresh');
 	}
 
 }

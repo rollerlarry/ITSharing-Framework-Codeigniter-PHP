@@ -72,7 +72,7 @@ class accounts_model extends CI_Model {
 		return $this->db->update('tbusers', $dataAccount);
 	}
 
-	public function updateMyProfile($userID,$firstName,$lastName,$email,$address,$city,$country,$postalCode,$about)
+	public function updateMyProfile($userID,$firstName,$lastName,$email,$address,$city,$country,$postalCode,$about,$userImage)
 	{
 		$dataMyProfile = array(
 			'FirstName' => $firstName,
@@ -82,7 +82,8 @@ class accounts_model extends CI_Model {
 			'City' => $city,
 			'Country' => $country,
 			'PostalCode' => $postalCode,
-			'About' => $about
+			'About' => $about,
+			'UserImage'=> $userImage
 		);
 		$this->db->where('UserID', $userID);
 		return $this->db->update('tbusers', $dataMyProfile);

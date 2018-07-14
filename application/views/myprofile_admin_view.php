@@ -22,6 +22,13 @@
                       <img class="img" src="<?= $value['UserImage'] ?>" />
                     </a>
                   </div>
+                  <div class="iconupload d-none">
+                    <span class="btn btn-link btn-rose btn-file">
+                        <span class="fileinput-new"><i class="material-icons">cloud_upload</i></span>
+                        <input type="hidden"><input type="file" name="userImage"><div class="ripple-container"></div>
+                        <input type="hidden" name="userImageHidden" value="<?= $value['UserImage'] ?>"><div class="ripple-container"></div>
+                    </span>
+                  </div>
                   <div class="card-body">
                     <h6 class="card-category text-gray">Administrator / ITSharing</h6>
                     <h4 class="card-title"><?= $this->session->userdata('FirstName') ?> <?= $this->session->userdata('LastName') ?></h4>
@@ -31,6 +38,8 @@
                     <a href="#pablo" class="btnEdit btn btn-rose btn-round"><li class="material-icons">edit</li> Edit</a>
                   </div>
                 </div>
+                    
+                    
               </div>
               <div class="cardEdit col-md-8 d-none">
                 <div class="card">
@@ -131,12 +140,19 @@
         </div>
       </div>
     </body>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <?php if ($error = $this->session->flashdata('update_profile_success')): ?>
+        <script>
+          swal("Good job!", "Update my profile successfuly", "success");
+        </script>
+    <?php endif ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
       $('body').on('click', '.btnEdit', function(event) {
         $('.cardShow').removeClass('col-md-12');
         $('.cardShow').addClass('col-md-4');
         $('.cardEdit').removeClass('d-none');
+        $('.iconupload').removeClass('d-none');
 
       });
       $('body').on('click', '.btnClose', function(event) {
@@ -144,8 +160,7 @@
         $('.cardEdit').addClass('d-none');
         $('.cardShow').removeClass('col-md-4');
         $('.cardShow').addClass('col-md-12');
-
-
+        $('.iconupload').addClass('d-none');
       });
 
     </script>

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   
-  <!-- Mirrored from demos.creative-tim.com/material-dashboard-pro/examples/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Apr 2018 09:36:34 GMT -->
   <?php require('widget_admin/header.php') ?>
   <body class="">
     <div class="wrapper">
@@ -12,11 +11,6 @@
         <!-- End Navbar -->
         <div class="content">
           <div class="container-fluid">
-            
-            <!-- <button type="button" class="btn btn-round btn-default dropdown-toggle btn-link" data-toggle="dropdown">
-            7 days
-            </button> -->
-           
             
               <h3>Manage Tutorials (<?= $countListTutorials ?>)</h3>
               

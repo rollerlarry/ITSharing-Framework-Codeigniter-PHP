@@ -1,7 +1,7 @@
 <nav class="navbar navbar-inverse navbar-expand-lg bg-dark" role="navigation-demo">
   <div class="container">
     <div class="navbar-translate">
-        <a class="navbar-brand" href="<?= base_url() ?>Home"><i class="fab fa-3x fa-accusoft"></i>  ITSharing</a>
+        <a class="navbar-brand" href="<?= base_url() ?>"><i class="fab fa-3x fa-accusoft"></i>  ITSharing</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon"></span>
@@ -51,7 +51,7 @@
             <li class="dropdown nav-item">
                 <a href="#pablo" class="profile-photo dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">
                     <div class="profile-photo-small">
-                        <img src="<?= base_url() ?>assets/img/faces/avatar.jpg" alt="Circle Image" class="rounded-circle img-fluid">
+                        <img src="<?= $this->session->userdata('UserImage'); ?>" alt="Circle Image" class="rounded-circle img-fluid">
                     </div>
                 <div class="ripple-container"></div></a>
                 <div class="dropdown-menu dropdown-menu-right">

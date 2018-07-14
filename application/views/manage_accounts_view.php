@@ -15,13 +15,12 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-12">
-                <a href="<?= base_url() ?>Accounts/createAccount" ><button class="btn btn-info">Create An Account</button></a>
                 <div class="card">
                   <div class="card-header card-header-text card-header-warning">
                     <div class="card-icon">
                       <i class="material-icons">assignment</i>
                     </div>
-                    <h4 class="card-title"><td><i class="material-icons">supervisor_account</i></td>Employees Stats</h4>
+                    <h4 class="card-title"><td><i class="material-icons">supervisor_account</i></td>Member Stats</h4>
 
                   </div>
 
@@ -34,7 +33,6 @@
                         <thead>
                           <tr>
                             <th><b>#</b></th>
-                            <th><b>Username</b></th>
                             <th><b>FirstName</b></th>
                             <th><b>LastName</b></th>
                             <th><b>Email</b></th>
@@ -46,7 +44,6 @@
                         <tfoot>
                         <tr>
                           <th>#</th>
-                          <th>Username</th>
                           <th>FirstName</th>
                           <th>LastName</th>
                           <th>Email</th>
@@ -60,7 +57,6 @@
                           <?php foreach ($arrayDataAccounts as $value): ?>
                             <tr>
                               <td><?= $number++ ?></td>
-                              <td><?= $value['UserName'] ?></td>
                               <td class="FirstName">
                                 <div class="show"><?= $value['FirstName'] ?></div>
                                 <div class="input d-none"><input type="text" name="firstName" class="inputFirstName form-control" value="<?= $value['FirstName'] ?>"></div>  

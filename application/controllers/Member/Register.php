@@ -28,24 +28,31 @@ class Register extends CI_Controller {
 				$this->Register_model->registerAccount($userName,$passWord,$email,$firstName,$lastName);
 
 				$dataUser = $this->Login_model->getUserInfo($userName);
+
+				$userId = $dataUser[0]['UserID'];
 				$firstName = $dataUser[0]['FirstName'];
 				$lastName = $dataUser[0]['LastName'];
+				$accountStatus = $dataUser[0]['Status'];
+				$userImage = $dataUser[0]['UserImage'];
 
-				// $sessionData = array(
-				// 	'FirstName' => $firstName,
-				// 	'LastName' => $lastName
-				// );
-				// $this->session->set_userdata($sessionData);
+				$sessionData = array(
+					'UserImage' => $userImage,
+					'UserID' => $userId,
+					'FirstName' => $firstName,
+					'LastName' => $lastName
+				);
+				
+				$this->session->set_userdata($sessionData);
 
-				redirect(base_url().'Home','refresh');
+				redirect(base_url().'Accounts','refresh');
 
 			}else{
 				$this->session->set_flashdata('account_exist', 'Invalid account');
-				redirect(base_url().'Home','refresh');
+				redirect(base_url(),'refresh');
 			}
 		}else{
 			$this->session->set_flashdata('error_confirmpassword', 'Invalid account');
-			redirect(base_url().'Home','refresh');
+			redirect(base_url(),'refresh');
 		}
 		
 	}

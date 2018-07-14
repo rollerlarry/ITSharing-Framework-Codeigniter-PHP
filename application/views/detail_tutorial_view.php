@@ -280,6 +280,7 @@
                                       <option class="dropdown-item" value="<?= $value['CategorieID'] ?>"><?= $value['CategorieName'] ?></option>
                                       <?php endforeach ?>
                                   </select>
+                                  <input type="text" class="inputcategorieID d-none" name="inputcategorieID" value="<?= $value['CategorieID'] ?>">
                                    <a class="btn btn-link btn-twitter" href="<?= base_url() ?>Tutorials/manageCategories"><span class="material-icons">add</span> NEW Categorie</a>
                                   <?php if ($error = $this->session->flashdata('categorie_null')): ?>
                                     <p style="color: red">Categorie for the tutorial can not be empty.</p>
@@ -363,6 +364,12 @@
               categorieID = $('.categorieID option:selected').val();
               tutorialID = $('.tutorialID').val();
 
+              if (categorieID == "") {
+                  categorieID = $('.inputcategorieID').val();
+              }
+
+
+
               // console.log(tutorialTitle);
               // console.log(tutorialDescription);
               // console.log(tutorialURL);
@@ -370,7 +377,7 @@
               // console.log(tutorialURL3);
               // console.log(tutorialLanguage);
               // console.log(tutorialLevel);
-              // console.log(categorieID);
+              console.log(categorieID);
 
 
               $.ajax({

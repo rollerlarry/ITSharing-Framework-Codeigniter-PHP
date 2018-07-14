@@ -184,6 +184,12 @@
       </div>
     </div>
   </body>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <?php if ($error = $this->session->flashdata('update_account_success')): ?>
+        <script>
+          swal("Good job!", "Update account successfuly!", "success");
+        </script>
+    <?php endif ?>
   <!--   Core JS Files   -->
   <?php require('widget_admin/bottom.php') ?>
 </html>

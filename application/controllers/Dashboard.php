@@ -11,8 +11,6 @@ class Dashboard extends CI_Controller {
 	{
 		$this->load->view('dashboard_view.php');	
 	}
-
-
 }
 
 /* End of file Dashboard.php */

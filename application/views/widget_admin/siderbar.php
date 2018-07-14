@@ -38,7 +38,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url() ?>Login/logoutAccount">
+                    <a class="nav-link" href="<?= base_url() ?>Member/Login/logoutAccount">
                       <span class="sidebar-mini"> O </span>
                       <span class="sidebar-normal"> Logout </span>
                     </a>
@@ -46,6 +46,7 @@
                 </ul>
               </div>
             </div>
+
           </div>
           <ul class="nav">
             <li class="nav-item active ">
