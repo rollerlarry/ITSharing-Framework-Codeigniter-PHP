@@ -88,7 +88,7 @@
                               </td>
                               <td class="btnAll td-actions text-right">
                                 <a data-href="<?= $value['UserID'] ?>" rel="tooltip" onclick="demo.showNotificationSuccess('bottom','right')" class="btnSave d-none"><button class="btn btn-success "><i class="material-icons">save</i></button></a>
-                                <a href="<?= base_url() ?>Accounts/detailAccount/<?= $value['UserID'] ?>" rel="tooltip" class="btnMore btn btn-info"><i class="material-icons">more_horiz</i></a>
+                                <a href="<?= base_url() ?>AccountDetail/<?= $value['UserID'] ?>" rel="tooltip" class="btnMore btn btn-info"><i class="material-icons">more_horiz</i></a>
                                 <button rel="tooltip" class="btnEdit btn btn-success"><i class="material-icons">edit</i></button>
                                 <a data-href="<?= $value['UserID'] ?>" class="btnDel" rel="tooltip"><button class="btn btn-danger"><i class="material-icons">close</i></button></a>
                               </td>

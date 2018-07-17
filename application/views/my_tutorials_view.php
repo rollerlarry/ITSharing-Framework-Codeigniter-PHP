@@ -24,7 +24,7 @@
               <div class="row">
                 <div class="col-md-12 ">
                     <div class="controls pull-left">
-                        <a class="btn btn-warning" href="<?= base_url() ?>Tutorials/manageTutorials"><span class="material-icons">arrow_left</span> Back Manage Tutorials</a>
+                        <a class="btn btn-warning" href="<?= base_url() ?>ListTutorials"><span class="material-icons">arrow_left</span> Back Manage Tutorials</a>
                     </div>
                 </div>
               </div>
@@ -37,7 +37,7 @@
                   <div class="card card-product">
                     <div class="card-header card-header-image" data-header-animation="true">
                       <a href="#pablo">
-                        <img class="img" src="<?= $value['TutorialImage'] ?>">
+                        <img class="img" style="height: 300px" src="<?= $value['TutorialImage'] ?>">
                       </a>
                     </div>
                     <div class="card-body">
@@ -45,7 +45,7 @@
                         <button type="button" class="btn btn-danger btn-link fix-broken-card">
                         <i class="material-icons">build</i> Fix Header!
                         </button>
-                        <a href="<?= base_url() ?>Tutorials/detailTutorial/<?= $value['TutorialID'] ?>" class="btn btn-info btn-link" rel="tooltip" data-placement="bottom" title="View detail">
+                        <a href="<?= base_url() ?>TutorialsDetail/<?= $value['TutorialID'] ?>" class="btn btn-info btn-link" rel="tooltip" data-placement="bottom" title="View detail">
                         <i class="material-icons">art_track</i>
                         </a>
                         <a class="btnFastEdit btn btn-success btn-link" rel="tooltip" data-placement="bottom" title="Fast edit "><i class="material-icons">edit</i></a>
@@ -57,7 +57,7 @@
                         <?php endif ?>
                       </div>
                       <h4 class="card-title">
-                        <a class="showTutorialTitle" href=""><?= $value['TutorialTitle'] ?></a>
+                        <a class="showTutorialTitle" href="<?= base_url() ?>Tutorials/detailTutorial/<?= $value['TutorialID'] ?>"><?= $value['TutorialTitle'] ?></a>
                         <input class="inputTutorialTitle form-control d-none" type="text" name="tutorialTitle" value="<?= $value['TutorialTitle'] ?>">
                       </h4>
                       <div class="card-description">

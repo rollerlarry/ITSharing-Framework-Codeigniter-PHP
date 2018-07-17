@@ -6,7 +6,7 @@ class Home extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Member/Courses_model');
-		$this->numberCourseOnPage = 4;
+		$this->numberCourseOnPage = 10;
 	}
 
 	public function index()

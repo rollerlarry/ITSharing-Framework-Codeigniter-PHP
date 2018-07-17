@@ -18,8 +18,8 @@
               <div class="row">
                 <div class="col-md-12 ">
                     <div class="controls pull-left">
-                        <a class="btn btn-success" href="<?= base_url() ?>Tutorials/addTutorial"><span class="material-icons">add</span> ADDNEW Tutorials</a>
-                        <a class="btn btn-info" href="<?= base_url() ?>Tutorials/myTutorialsUpload"><span class="material-icons">account_circle</span> My Tutorials Upload</a>
+                        <a class="btn btn-success" href="<?= base_url() ?>addTutorial"><span class="material-icons">add</span> ADDNEW Tutorials</a>
+                        <a class="btn btn-info" href="<?= base_url() ?>myTutorialsUpload"><span class="material-icons">account_circle</span> My Tutorials Upload</a>
                     </div>
                 </div>
               </div>
@@ -40,24 +40,26 @@
                         <button type="button" class="btn btn-danger btn-link fix-broken-card">
                         <i class="material-icons">build</i> Fix Header!
                         </button>
-                        <a href="<?= base_url() ?>Tutorials/detailTutorial/<?= $value['TutorialID'] ?>" class="btn btn-info btn-link" rel="tooltip" data-placement="bottom" title="View detail">
+                        <a href="<?= base_url() ?>TutorialsDetail/<?= $value['TutorialID'] ?>" class="btn btn-info btn-link" rel="tooltip" data-placement="bottom" title="View detail">
                         <i class="material-icons">art_track</i>
                         </a>
                         <a class="btnFastEdit btn btn-success btn-link" rel="tooltip" data-placement="bottom" title="Fast edit "><i class="material-icons">edit</i></a>
                         <a data-href="<?= $value['TutorialID'] ?>" class="btnSave btn btn-success btn-link d-none" rel="tooltip" data-placement="bottom" title="Save " onclick="demo.showNotificationSuccess('bottom','right')"><i class="material-icons">save</i></a>
                         <?php if ($value['TutorialStatus'] == 0): ?>
-                          <a href="<?= base_url() ?>Tutorials/privateTutorial/<?= $value['TutorialID'] ?>" class="btn btn-success btn-link" rel="tooltip" data-placement="bottom" title="Pulbic - Click to Private"><i class="material-icons">lock_open</i></a>
+                          <a data-href="<?= $value['TutorialID'] ?>" class="btnLock btn btn-success btn-link" rel="tooltip" data-placement="bottom" title="Pulbic - Click to Private"><i class="material-icons">lock_open</i></a>
                         <?php else: ?>
-                           <a href="<?= base_url() ?>Tutorials/publicTutorial/<?= $value['TutorialID'] ?>" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Private - Click to Public"><i class="material-icons">lock</i></a>
+                          <a data-href="<?= $value['TutorialID'] ?>" class="btnUnLock btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Private - Click to Public"><i class="material-icons">lock</i></a>
                         <?php endif ?>
+                          <a data-href="<?= $value['TutorialID'] ?>" class="btnUnLock btn btn-danger btn-link d-none" rel="tooltip" data-placement="bottom" title="Private - Click to Public"><i class="material-icons">lock</i></a>
+                          <!-- <a data-href="<?= $value['TutorialID'] ?>" class="btnLock btn btn-success btn-link d-none" rel="tooltip" data-placement="bottom" title="Pulbic - Click to Private"><i class="material-icons">lock_open</i></a> -->
                       </div>
                       <h4 class="card-title">
                         <a class="showTutorialTitle" href="<?= base_url() ?>Tutorials/detailTutorial/<?= $value['TutorialID'] ?>"><?= $value['TutorialTitle'] ?></a>
-                        <input class="inputTutorialTitle form-control d-none" type="text" name="tutorialTitle" value="<?= $value['TutorialTitle'] ?>">
+                        <textarea class="inputTutorialTitle form-control d-none" type="text" name="tutorialTitle" rows="2"><?= $value['TutorialTitle'] ?></textarea>
                       </h4>
                       <div class="card-description">
                         <div class="showTutorialDescription"><?= $value['TutorialDescription'] ?></div>
-                        <input class="inputTutorialDescription form-control d-none" type="text" name="tutorialDescription" value="<?= $value['TutorialDescription'] ?>">
+                        <textarea class="inputTutorialDescription form-control d-none" type="text" name="tutorialDescription" rows="6"><?= $value['TutorialDescription'] ?></textarea>
                       </div>
                       <div class="card-description">
                         <div class="raiting">
@@ -162,6 +164,50 @@
         .always(function() {
           // console.log("complete");
         });
+        
+        
+      });
+      $('body').on('click', '.btnLock', function(event) {
+        var tutorialID = $(this).data('href');
+        $.ajax({
+          url: '<?= base_url() ?>Tutorials/privateTutorial/'+tutorialID,
+          type: 'POST',
+          dataType: 'json',
+        })
+        .done(function() {
+          //console.log("success");
+        })
+        .fail(function() {
+          //console.log("error");
+        })
+        .always(function() {
+          //console.log("complete");
+        });
+
+        $(this).addClass('d-none');
+        $(this).parent().children('.btnUnLock').removeClass('d-none');
+        
+        
+      });
+      $('body').on('click', '.btnUnLock', function(event) {
+        var tutorialID = $(this).data('href');
+        $.ajax({
+          url: '<?= base_url() ?>Tutorials/publicTutorial/'+tutorialID,
+          type: 'POST',
+          dataType: 'json',
+        })
+        .done(function() {
+          //console.log("success");
+        })
+        .fail(function() {
+          //console.log("error");
+        })
+        .always(function() {
+          //console.log("complete");
+        });
+
+        $(this).addClass('d-none');
+        $(this).parent().children('.btnLock').removeClass('d-none');
         
         
       });

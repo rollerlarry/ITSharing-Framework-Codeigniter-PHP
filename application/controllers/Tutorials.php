@@ -102,18 +102,18 @@ class Tutorials extends CI_Controller {
 		if($uploadOk == 1){
 			if(basename($_FILES["tutorial-image"]["name"]) == NULL){
 				$this->session->set_flashdata('tutorial_image_null', 'Invalid tutorial');
-				redirect(base_url().'Tutorials/addTutorial','refresh');
+				redirect(base_url().'addTutorial','refresh');
 			}else{
 				if ($tutorialCategorie == NULL) {
 					$this->session->set_flashdata('categorie_null', 'Invalid tutorial');
-					redirect(base_url().'Tutorials/addTutorial','refresh');
+					redirect(base_url().'addTutorial','refresh');
 				}else{
 					$this->Tutorials_model->insertTutorial($userID,$tutorialTitle,$tutorialDescription,$tutorialImage,$tutorialCategorie,$tutorialUrl,$tutorialUrl2,$tutorialUrl3,$tutorialLanguage,$tutorialLevel);
-				redirect(base_url().'Tutorials/manageTutorials','refresh');
+					redirect(base_url().'ListTutorials','refresh');
 				}
 			}
 		}else{
-			redirect(base_url().'Tutorials/addTutorial','refresh');
+			redirect(base_url().'addTutorial','refresh');
 		}
 	}
 
@@ -136,33 +136,35 @@ class Tutorials extends CI_Controller {
 	public function detailTutorial($tutorialID=NULL)
 	{
 		if (empty($tutorialID)) {
-			redirect(base_url().'Tutorials/manageTutorials','refresh');
+			redirect(base_url().'ListTutorials','refresh');
 		}else{
 			$dataTutorial = $this->Tutorials_model->getInfoDetailTutorial($tutorialID);
 
-			$userID = $this->Tutorials_model->getUserIDUploadTutorial($tutorialID);
-			$userID = $userID[0]['UserID'];
+			if (empty($dataTutorial)) {
+				redirect(base_url().'ListTutorials','refresh');
+			}else{
+				$userID = $this->Tutorials_model->getUserIDUploadTutorial($tutorialID);
+				$userID = $userID[0]['UserID'];
 
-			$dataListTutorials = $this->Tutorials_model->getListTutorialsForUser($userID,$tutorialID);
+				$dataListTutorials = $this->Tutorials_model->getListTutorialsForUser($userID,$tutorialID);
 
-			$dataCategorie = $this->Tutorials_model->getListCategories();
+				$dataCategorie = $this->Tutorials_model->getListCategories();
 
-			$dataTutorial = array('arrayDataTutorial' => $dataTutorial,'arrayDataCategories' => $dataCategorie ,'arrayDataTutorialForUser' => $dataListTutorials);
+				$dataTutorial = array('arrayDataTutorial' => $dataTutorial,'arrayDataCategories' => $dataCategorie ,'arrayDataTutorialForUser' => $dataListTutorials);
 
-			$this->load->view('detail_tutorial_view',$dataTutorial);
+				$this->load->view('detail_tutorial_view',$dataTutorial);
+			}
 		}
 	}
 
 	public function privateTutorial($tutorialID)
 	{
 		$this->Tutorials_model->privateTutorial($tutorialID);
-		redirect(base_url().'Tutorials/manageTutorials','refresh');
 	}
 
 	public function publicTutorial($tutorialID)
 	{
 		$this->Tutorials_model->publicTutorial($tutorialID);
-		redirect(base_url().'Tutorials/manageTutorials','refresh');
 	}
 
 	public function delTutorial($tutorialID)

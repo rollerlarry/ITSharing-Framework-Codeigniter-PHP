@@ -26,7 +26,7 @@
               <div class="collapse" id="collapseExample">
                 <ul class="nav">
                   <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url() ?>Accounts/myProfile">
+                    <a class="nav-link" href="<?= base_url() ?>MyProfile">
                       <span class="sidebar-mini"> MP </span>
                       <span class="sidebar-normal"> My Profile </span>
                     </a>
@@ -38,7 +38,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url() ?>Member/Login/logoutAccount">
+                    <a class="nav-link" href="<?= base_url() ?>Logout">
                       <span class="sidebar-mini"> O </span>
                       <span class="sidebar-normal"> Logout </span>
                     </a>

@@ -24,7 +24,7 @@
                   </div>
                   <div class="card-body">
                     <div class="text-center">
-                      <img class="img-thumbnail" src="<?= $valueone['TutorialImage'] ?>">
+                      <img class="img-thumbnail" style="height: 400px" src="<?= $valueone['TutorialImage'] ?>">
                       <h3><?= $valueone['TutorialTitle'] ?></h3><small>(<i class="fa fa-eye" aria-hidden="true"></i> <?= $valueone['TutorialView'] ?> view)</small>
                       
                     </div>
@@ -385,7 +385,7 @@
                         confirmButtonClass: "btn btn-success",
                         buttonsStyling: false
                     })
-                    window.location="<?= base_url() ?>Tutorials/manageTutorials"
+                    window.location="<?= base_url() ?>ListTutorials"
                 }).catch(swal.noop)
               event.preventDefault();
               /* Act on the event */

@@ -75,13 +75,13 @@
 	                                            <div class="card-footer">
 	                                                <div class="author">
 	                                                    <a href="#pablo">
-	                                                        <img src="<?= base_url() ?>assets/img/faces/avatar.jpg" alt="..." class="avatar img-raised">
+	                                                        <img src="<?= $value['UserImage'] ?>" alt="..." class="avatar img-raised">
 	                                                        <span class="card-title"><?= $value['FirstName'] ?> <?= $value['LastName'] ?></span>
 	                                                    </a>
 	                                                </div>
 	                                                <div class="ml-auto">
-	                                                    <a href=""><i class="far fa-thumbs-up"></a></i> <?= $value['TutorialLike'] ?> .  
-	                                                    <a href=""><i class="fas fa-share-alt"></i></a> 45 .    
+	                                                    <a href=""><i class="far fa-thumbs-up"></a></i> <?php echo(rand(10,100)); ?> .  
+	                                                    <a href=""><i class="fas fa-share-alt"></i></a> <?php echo(rand(10,100)); ?> .    
 	                                                    <i class="fas fa-cloud-upload-alt"></i> <?= date('d-m-Y',$value['TutorialDateUpload']) ?>
 	                                                </div>
 	                                            </div>
@@ -118,14 +118,13 @@
 	                                                    	<?php endif ?>
 
 	                                                    	<?php if ($value['TutorialURL2'] != ""): ?>
-	                                                    		<a target="_blank" href="<?= $value['TutorialURL2'] ?>" class="btn btn-round btn-dribbble">
-			                                                        <i class="fa fa-dribbble"></i> Mega
+	                                                    		<a target="_blank" href="<?= $value['TutorialURL2'] ?>" class="btn btn-round btn-facebook">
+			                                                        <i class="fa fa-facebook"></i> Fshare
 			                                                    </a>
 	                                                    	<?php endif ?>
-
 	                                                    	<?php if ($value['TutorialURL3'] != ""): ?>
-	                                                    		<a target="_blank" href="<?= $value['TutorialURL3'] ?>" class="btn btn-round btn-facebook">
-			                                                        <i class="fa fa-facebook"></i> Fshare
+	                                                    		<a target="_blank" href="<?= $value['TutorialURL3'] ?>" class="btn btn-round btn-dribbble">
+			                                                        <i class="fa fa-dribbble"></i> Mega
 			                                                    </a>
 	                                                    	<?php endif ?>
 														<?php else: ?>
@@ -368,7 +367,7 @@
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-login" role="document">
             <div class="modal-content">
-            	<form class="form" method="POST" action="<?= base_url() ?>Member/Login/loginAccount">
+            	<form id="TypeValidation" class="form" method="POST" action="<?= base_url() ?>Login">
 	                <div class="card card-signup card-plain">
 	                    <div class="modal-header">
 	                        <div class="card-header card-header-info text-center">
@@ -438,7 +437,7 @@
      <div class="modal fade" id="signupModal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-signup" role="document">
             <div class="modal-content">
-            	<form class="form" method="POST" action="<?= base_url() ?>Member/Register/registerAccount">
+            	<form id="TypeValidation" class="form" method="POST" action="<?= base_url() ?>Register">
 	                <div class="card card-signup card-plain">
 	                    <div class="modal-header">
 	                        <h3 class="modal-title card-title">Register</h3>
@@ -505,7 +504,7 @@
 	                                                        <i class="material-icons">perm_identity</i>
 	                                                    </span>
 	                                                </div>
-	                                                <input type="text" name="userName" placeholder="Username..." class="form-control" />
+	                                                <input type="text" name="userName" placeholder="Username..." class="form-control" required="true" />
 	                                            </div>
 	                                        </div>
 	                                        <div class="form-group">
@@ -515,7 +514,7 @@
 	                                                        <i class="material-icons">lock_outline</i>
 	                                                    </span>
 	                                                </div>
-	                                                <input type="password" name="passWord" placeholder="Password..." class="form-control" />
+	                                                <input type="password" name="passWord" placeholder="Password..." class="form-control" required="true"/>
 	                                            </div>
 	                                        </div>
 	                                        <div class="form-group">
@@ -525,7 +524,7 @@
 	                                                        <i class="material-icons">lock_outline</i>
 	                                                    </span>
 	                                                </div>
-	                                                <input type="password" name="confirmPassword" placeholder="Confirm Password..." class="form-control" />
+	                                                <input type="password" name="confirmPassword" placeholder="Confirm Password..." class="form-control" required="true"/>
 	                                            </div>
 	                                        </div>
 	                                        <div class="form-group">
@@ -535,7 +534,7 @@
 	                                                        <i class="material-icons">mail</i>
 	                                                    </span>
 	                                                </div>
-	                                                <input type="text" name="email" class="form-control" placeholder="Email...">
+	                                                <input type="text" name="email" class="form-control" placeholder="Email..." email="true" required="true">
 	                                            </div>
 	                                        </div>
 	                                        <div class="form-group">
@@ -545,7 +544,7 @@
 	                                                        <i class="material-icons">face</i>
 	                                                    </span>
 	                                                </div>
-	                                                <input type="text" name="firstName" class="form-control" placeholder="First Name...">
+	                                                <input type="text" name="firstName" class="form-control" placeholder="First Name..." required="true">
 	                                            </div>
 	                                        </div>
 	                                        <div class="form-group">
@@ -555,7 +554,7 @@
 	                                                        <i class="material-icons">face</i>
 	                                                    </span>
 	                                                </div>
-	                                                <input type="text" name="lastName" class="form-control" placeholder="Last Name...">
+	                                                <input type="text" name="lastName" class="form-control" placeholder="Last Name..." required="true">
 	                                            </div>
 	                                        </div>
 	                                        <div class="form-check">
@@ -689,5 +688,26 @@
 		
 		$(this).parent().parent().parent().parent().parent().remove();
 	});
+</script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<script type="text/javascript">
+  function setFormValidation(id){
+    $(id).validate({
+      highlight: function(element) {
+        $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
+      },
+      success: function(element) {
+        $(element).closest('.form-group').removeClass('has-danger').addClass('has-success');
+      },
+      errorPlacement : function(error, element) {
+        $(element).append(error);
+      },
+    });
+  }
+  $(document).ready(function(){
+    setFormValidation('#TypeValidation');
+    
+  });
 </script>
 </html>

@@ -139,8 +139,12 @@ class Accounts extends CI_Controller {
 			redirect(base_url().'Accounts/manageAccounts','refresh');
 		}else{
 			$dataAccount = $this->Accounts_model->getInfoAccount($userID);
-			$dataAccount = array('arrayDataAccount' => $dataAccount);
-			$this->load->view('detail_account_view',$dataAccount);
+			if (empty($dataAccount)) {
+				redirect(base_url().'ListAccounts','refresh');
+			}else{
+				$dataAccount = array('arrayDataAccount' => $dataAccount);
+				$this->load->view('detail_account_view',$dataAccount);
+			}
 		}
 	}
 

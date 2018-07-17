@@ -55,10 +55,10 @@
                     </div>
                 <div class="ripple-container"></div></a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a href="<?= base_url() ?>Member/Profile" class="dropdown-item">My Profile</a>
-                    <a href="<?= base_url() ?>Member/Courses/myCourses" class="dropdown-item">My Courses</a>
-                    <a href="<?= base_url() ?>Member/Settings" class="dropdown-item">Settings</a>
-                    <a href="<?= base_url() ?>Member/Login/logoutAccount" class="dropdown-item">Sign out</a>
+                    <a href="<?= base_url() ?>Profile" class="dropdown-item">My Profile</a>
+                    <a href="<?= base_url() ?>MyCourses" class="dropdown-item">My Courses</a>
+                    <a href="<?= base_url() ?>Settings" class="dropdown-item">Settings</a>
+                    <a href="<?= base_url() ?>Logout" class="dropdown-item">Sign out</a>
                 </div>
             </li>
         </ul>

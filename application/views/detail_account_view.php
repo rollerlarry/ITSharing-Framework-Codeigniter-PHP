@@ -171,7 +171,7 @@
                       </div>
                   </div>
                   <div class="card-footer ">
-                      <a href="<?= base_url() ?>Accounts/manageAccounts" class="btn btn-fill btn-info"><span class="material-icons">arrow_back_ios</span> Back ManageAccounts</a>
+                      <a href="<?= base_url() ?>ListAccounts" class="btn btn-fill btn-info"><span class="material-icons">arrow_back_ios</span> Back ManageAccounts</a>
                       <button type="submit" class="btnUpdate btn btn-fill btn-success"><span class="material-icons">system_update</span> Update Account</button>
                     </div>
                 </div>

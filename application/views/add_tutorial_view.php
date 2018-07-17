@@ -166,7 +166,7 @@
                       </div>
                     </div>
                     <div class="card-footer ">
-                        <a href="http://localhost/ITSharing/Tutorials/manageTutorials" class="btn btn-fill btn-info"><span class="material-icons">arrow_back_ios</span> Back ManageTutorials</a>
+                        <a href="<?= base_url() ?>ListTutorials" class="btn btn-fill btn-info"><span class="material-icons">arrow_back_ios</span> Back ManageTutorials</a>
                         <button class="btnAdd btn btn-fill btn-info"><span class="material-icons">playlist_add</span> AddNew Tutorial</button>
                       </div>
                   </div>

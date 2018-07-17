@@ -19,7 +19,7 @@
                     <div class="card-icon">
                       <i class="material-icons">assignment_ind</i>
                     </div>
-                    <p class="card-category"><a href="<?= base_url() ?>Accounts/manageAccounts">ManageAccounts</a></p>
+                    <p class="card-category"><a href="<?= base_url() ?>ListAccounts">ManageAccounts</a></p>
                     <h3 class="card-title">184</h3>
                   </div>
                   <div class="card-footer">
@@ -35,7 +35,7 @@
                     <div class="card-icon">
                       <i class="material-icons">library_books</i>
                     </div>
-                    <p class="card-category"><a href="<?= base_url() ?>Tutorials/manageTutorials">ManageTutorials</a></p>
+                    <p class="card-category"><a href="<?= base_url() ?>ListTutorials">ManageTutorials</a></p>
                     <h3 class="card-title">75.521</h3>
                   </div>
                   <div class="card-footer">
