@@ -14,7 +14,7 @@
             <?php if ($this->session->has_userdata('UserLevel')): ?>
             <li class="nav-item">
                 <a href="<?= base_url() ?>Dashboard" class="nav-link">
-                    <i class="fas fa-users"></i> GoTo Dashboard
+                    <i class="fa fa-tachometer"></i> GoTo Dashboard
                 </a>
             </li>
             <?php endif ?>
@@ -24,29 +24,23 @@
                     <i class="fas fa-users"></i> Community
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="#pablo" class="nav-link">
-                    <i class="fab fa-forumbee"></i> Forum
-                </a>
-            </li>
             <li class="dropdown nav-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <i class="material-icons">apps</i> Documentation
                     </a>
                     <div class="dropdown-menu dropdown-with-icons">
-                        <a href="../index.html" class="dropdown-item">
-                            <i class="material-icons">layers</i> Ebook
-                        </a>
                         <a href="../docs/2.0/getting-started/introduction.html" class="dropdown-item">
                             <i class="material-icons">content_paste</i> Full Documentation
                         </a>
                     </div>
                 </li>
-                <li class="dropdown nav-item">
-                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                        <i class="material-icons">view_carousel</i> Topics
-                    </a>
-                </li>
+                <li class="nav-item">
+                        <a href="#pablo" class="btn btn-while">
+                            <i class="material-icons">email</i>
+                            <span class="notification">5</span>
+                            <div class="ripple-container"></div>
+                        </a>
+                    </li>
 
             <li class="dropdown nav-item">
                 <a href="#pablo" class="profile-photo dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">

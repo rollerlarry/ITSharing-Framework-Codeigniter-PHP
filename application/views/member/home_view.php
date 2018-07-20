@@ -7,9 +7,9 @@
 <body class="blog-posts ">
    
  
-    <?php if ($this->session->has_userdata('UserID')): ?>
+    <?php if ($this->session->has_userdata('UserID')) : ?>
 	    <?php require('widget_member/navin.php') ?>   
-	<?php else: ?>
+	<?php else : ?>
 	    <?php require('widget_member/navout.php') ?>
 	<?php endif ?>
     
@@ -28,23 +28,63 @@
                 <h3 class="title text-center">New Courses List</h3>
                 	<div class="input-group">
                 		<form method="POST" action="<?= base_url() ?>Member/Courses/searchCourse">
-		                    <div class="input-group-prepend">
+		                    <div class="inputSearch input-group-prepend">
 		                          <button type="submit" class="btn btn-link"><i class="fab fa-4x fa-searchengin text-info"></i></button>
 		                          <input type="text" name="search" class="form-control" placeholder="Search sources here ...">
 		                    </div>
 	                    </form>
-                    	<div class="input-group-prepend">
-	                        <button class="btn btn-link btn-info btn-round">Search Advance</button>
-	                    </div>
-                  	</div>
+                    	<div class="SearchAdvance input-group-prepend">
+	                        <button class="btnSearchAdvance btn btn-link btn-info btn-round">Search Advance</button>
+						</div>
+							<div class="slSearchAdvance col-lg-3 col-md-3 col-sm-6 d-none">
+								<select class="selectpicker " data-style="select-with-transition" title="Sort" data-size="7">
+									<option value="2">Foobar</option>
+									<option value="3">Is great</option>
+								</select>
+							</div>
+							<div class="slSearchAdvance col-lg-3 col-md-3 col-sm-6 d-none">
+								<select class="selectpicker " data-style="select-with-transition" title="Language Program" data-size="7">
+									<option value="2">Foobar</option>
+									<option value="3">Is great</option>
+								</select>
+							</div>
+							<div class="slSearchAdvance col-lg-3 col-md-3 col-sm-6 d-none">
+								<select class="selectpicker " data-style="select-with-transition" title="Training" data-size="7">
+									<option value="2">Foobar</option>
+									<option value="3">Is great</option>
+								</select>
+							</div>
+							<div class="slSearchAdvance col-lg-3 col-md-3 col-sm-6 d-none">
+								<select class="selectpicker" data-style="select-with-transition" multiple title="Categorie Courses" data-size="7">
+									<option value="2">Paris </option>
+									<option value="3">Bucharest</option>
+									<option value="4">Rome</option>
+									<option value="5">New York</option>
+									<option value="6">Miami </option>
+									<option value="7">Piatra Neamt</option>
+									<option value="8">Paris </option>
+									<option value="9">Bucharest</option>
+									<option value="10">Rome</option>
+									<option value="11">New York</option>
+									<option value="12">Miami </option>
+									<option value="13">Piatra Neamt</option>
+									<option value="14">Paris </option>
+									<option value="15">Bucharest</option>
+									<option value="16">Rome</option>
+									<option value="17">New York</option>
+									<option value="18">Miami </option>
+									<option value="19">Piatra Neamt</option>
+								</select>
+							</div>
+					</div>
                   <br><br>
-                  <?php if (isset($countCourseSearch)): ?>
+                  <?php if (isset($countCourseSearch)) : ?>
                   	<h4 class="title text-center text-info"><i class="fa fa fa-refresh fa-spin"></i> Have <?= $countCourseSearch ?> result for serach </h4>
                   <?php endif ?>
                 <div class="cards" id="morphingCards">
                     <div class="container">
                         <div class="row">
-                        	<?php foreach ($arrayDataListCourses as $value): ?>
+                        	<?php foreach ($arrayDataListCourses as $value) : ?>
 	                            <div class="col-md-6 col-lg-6">
 	                                <div class="rotating-card-container manual-flip" style="height: 442px; margin-bottom: 30px;">
 	                                    <div class="card card-rotate">
@@ -80,9 +120,9 @@
 	                                                    </a>
 	                                                </div>
 	                                                <div class="ml-auto">
-	                                                    <a href=""><i class="far fa-thumbs-up"></a></i> <?php echo(rand(10,100)); ?> .  
-	                                                    <a href=""><i class="fas fa-share-alt"></i></a> <?php echo(rand(10,100)); ?> .    
-	                                                    <i class="fas fa-cloud-upload-alt"></i> <?= date('d-m-Y',$value['TutorialDateUpload']) ?>
+	                                                    <a href=""><i class="far fa-thumbs-up"></a></i> <?php echo (rand(10, 100)); ?> .  
+	                                                    <a href=""><i class="fas fa-share-alt"></i></a> <?php echo (rand(10, 100)); ?> .    
+	                                                    <i class="fas fa-cloud-upload-alt"></i> <?= date('d-m-Y', $value['TutorialDateUpload']) ?>
 	                                                </div>
 	                                            </div>
 	                                        </div>
@@ -110,24 +150,24 @@
 	                                                    <br>
 	                                                    <p class="card-title">Download below</p>
 	                                                    <br>
-	                                                    <?php if ($this->session->has_userdata('UserID')): ?>
-	                                                    	<?php if ($value['TutorialURL'] != ""): ?>
+	                                                    <?php if ($this->session->has_userdata('UserID')) : ?>
+	                                                    	<?php if ($value['TutorialURL'] != "") : ?>
 	                                                    		<a target="_blank" href="<?= $value['TutorialURL'] ?>" class="btn btn-round">
 			                                                        <i class="fa fa-google"></i> GGDriver
 			                                                    </a>
 	                                                    	<?php endif ?>
 
-	                                                    	<?php if ($value['TutorialURL2'] != ""): ?>
+	                                                    	<?php if ($value['TutorialURL2'] != "") : ?>
 	                                                    		<a target="_blank" href="<?= $value['TutorialURL2'] ?>" class="btn btn-round btn-facebook">
 			                                                        <i class="fa fa-facebook"></i> Fshare
 			                                                    </a>
 	                                                    	<?php endif ?>
-	                                                    	<?php if ($value['TutorialURL3'] != ""): ?>
+	                                                    	<?php if ($value['TutorialURL3'] != "") : ?>
 	                                                    		<a target="_blank" href="<?= $value['TutorialURL3'] ?>" class="btn btn-round btn-dribbble">
 			                                                        <i class="fa fa-dribbble"></i> Mega
 			                                                    </a>
 	                                                    	<?php endif ?>
-														<?php else: ?>
+														<?php else : ?>
 														    <a href="#pablo" class="btn btn-round btn-danger" data-toggle="modal" data-target="#loginModal">
 		                                                        <i class="fa fa-exclamation-triangle"></i> You not login. Please login to download.
 		                                                    </a>
@@ -139,10 +179,10 @@
 	                                                	<div class="ripple-container"></div>
 	                                            	</button>
 	                                            	<br>
-	                                            	<?php if ($this->session->has_userdata('UserID')): ?>
+	                                            	<?php if ($this->session->has_userdata('UserID')) : ?>
 	                                            		<?php 
-	                                            			$userID = $this->session->userdata('UserID');
-	                                            		 ?>
+																																														$userID = $this->session->userdata('UserID');
+																																														?>
 	                                            		<input type="text" name="categorieID" class="categorieID d-none" value="<?= $value['CategorieID'] ?>">
 	                                            		<input type="text" name="tutorialID" class="tutorialID d-none" value="<?= $value['TutorialID'] ?>">
 	                                            		<input type="text" name="userID" class="userID d-none" value="<?= $userID ?>">
@@ -151,7 +191,7 @@
 		                                                	<div class="ripple-container"></div>
 		                                            	</button>
 
-													<?php else: ?>
+													<?php else : ?>
 													    
 													<?php endif ?>
 	                                            </div>
@@ -163,46 +203,47 @@
                         </div>
                         <br><br>
                         <?php 
-							$uri = $_SERVER['REQUEST_URI'];
-							$uri = explode('/',$uri);
-							$numberPageCurrent = end($uri);
+						$uri = $_SERVER['REQUEST_URI'];
+						$uri = explode('/', $uri);
+						$numberPageCurrent = end($uri);
 
-						 ?>
+						?>
                         <div class="row">
                         	<div class="col-md-2 ml-auto mr-auto">
                     			<ul class="pagination pagination-info">
-                    				<?php if (isset($numberPage)): ?>
-                    					<?php if ($numberPageCurrent <=1 ): ?>
+                    				<?php if (isset($numberPage)) : ?>
+                    					<?php if ($numberPageCurrent <= 1) : ?>
 
-	                    				<?php else: ?>
+	                    				<?php else : ?>
 	                    					<li class="page-item">
 			                                    <a href="<?= base_url() ?>Home/page/<?= $numberPageCurrent - 1 ?>" class="page-link"> prev<div class="ripple-container"></div></a>
 			                                </li>
 	                    				<?php endif ?>
 		                                <?php
-		                                	$count = 1; 
-		                                	for ($i = 0; $i < $numberPage; $i++) {
-		                                		?>
-		                                		<?php if ($i == $numberPageCurrent -1): ?>
+												$count = 1;
+												for ($i = 0; $i < $numberPage; $i++) {
+													?>
+		                                		<?php if ($i == $numberPageCurrent - 1) : ?>
 		                                			<li class="active page-item">
 					                                    <a href="" class="page-link"><?= $count++ ?></a>
 					                                </li>
-		                                		<?php else: ?>
+		                                		<?php else : ?>
 		                                			<li class="page-item">
 					                                    <a href="<?= base_url() ?>Home/page/<?= $count ?>" class="page-link"><?= $count++ ?><div class="ripple-container"></div></a>
 					                                <li>
 		                                		<?php endif ?>
 		                                		
 				                                <?php
-		                                	}
-		                                 ?>
-		                                 <?php if ($numberPageCurrent == $numberPage): ?>
+
+																																		}
+																																		?>
+		                                 <?php if ($numberPageCurrent == $numberPage) : ?>
 											
-		                                 <?php elseif($numberPageCurrent == 'Home'): ?>
+		                                 <?php elseif ($numberPageCurrent == 'Home') : ?>
 								 			<li class="page-item">
 			                                    <a href="<?= base_url() ?>Home/page/<?= $numberPageCurrent + 2 ?>" class="page-link">next <div class="ripple-container"></div></a>
 			                                </li>
-										 <?php else: ?>
+										 <?php else : ?>
 										 	<li class="page-item">
 			                                    <a href="<?= base_url() ?>Home/page/<?= $numberPageCurrent + 1 ?>" class="page-link">next <div class="ripple-container"></div></a>
 			                                </li>
@@ -418,10 +459,10 @@
 	                    </div>
 	                    <br>
 	                    <div class="text-center">
-	                    	<?php if ($error = $this->session->flashdata('login_error')): ?>
+	                    	<?php if ($error = $this->session->flashdata('login_error')) : ?>
 								<p style="color: red"><b>Wrong username or password. <br> Try again or click Forgot password to reset it.</b></p>
 							<?php endif ?>
-							<?php if ($error = $this->session->flashdata('account_lock')): ?>
+							<?php if ($error = $this->session->flashdata('account_lock')) : ?>
 								<p style="color: red"><b>This account is currently locked. You can request to unlock <a style="color: red" href="<?= base_url() ?>Lock"><b>Here</b></a> or contact the administrator for more details</b>.</p>
 							<?php endif ?>
 	                    </div>
@@ -574,10 +615,10 @@
 	                                    </div>
 										<br>
 	                                    <div class="modal-footer justify-content-center">
-	                                    	<?php if ($error = $this->session->flashdata('account_exist')): ?>
+	                                    	<?php if ($error = $this->session->flashdata('account_exist')) : ?>
 												<p style="color: red"><b>This username already exists. <br>Try again other account.</b></p>
 											<?php endif ?>
-											<?php if ($error = $this->session->flashdata('error_confirmpassword')): ?>
+											<?php if ($error = $this->session->flashdata('error_confirmpassword')) : ?>
 												<p style="color: red"><b>Those passwords didn't match. Try again.</b></p>
 											<?php endif ?>
 	                                    </div>
@@ -637,14 +678,14 @@
         </div>
     </div>
     <?php require('widget_member/bottom.php') ?>
-    <?php if ($error = $this->session->flashdata('login_error') || $error = $this->session->flashdata('account_lock')): ?>
+    <?php if ($error = $this->session->flashdata('login_error') || $error = $this->session->flashdata('account_lock')) : ?>
     	<script type="text/javascript">
 			$(window).on('load',function(){
 		        $('#loginModal').modal('show');
 		    });
 		</script>
     <?php endif ?>
-    <?php if ($error = $this->session->flashdata('account_exist') || $error = $this->session->flashdata('error_confirmpassword')): ?>
+    <?php if ($error = $this->session->flashdata('account_exist') || $error = $this->session->flashdata('error_confirmpassword')) : ?>
     	<script type="text/javascript">
 			$(window).on('load',function(){
 		        $('#signupModal').modal('show');
@@ -667,7 +708,7 @@
 		console.log(userID);
 		console.log(categorieID);
 		$.ajax({
-			url: '<?= base_url()?>Member/Courses/addMyCourse',
+			url: '<?= base_url() ?>Member/Courses/addMyCourse',
 			type: 'POST',
 			dataType: 'json',
 			data: {
@@ -687,6 +728,11 @@
 		});
 		
 		$(this).parent().parent().parent().parent().parent().remove();
+	});
+	$('body').on('click', '.btnSearchAdvance', function(event) {
+		$('.inputSearch').addClass('d-none');
+		$('.SearchAdvance').addClass('d-none');
+		$('.slSearchAdvance').removeClass('d-none');
 	});
 </script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
