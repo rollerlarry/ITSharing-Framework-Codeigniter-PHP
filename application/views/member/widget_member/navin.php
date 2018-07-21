@@ -37,7 +37,7 @@
                 <li class="nav-item">
                         <a href="#pablo" class="btn btn-while">
                             <i class="material-icons">email</i>
-                            <span class="notification">5</span>
+                            <span class="notification">0</span>
                             <div class="ripple-container"></div>
                         </a>
                     </li>

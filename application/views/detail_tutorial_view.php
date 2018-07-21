@@ -25,7 +25,7 @@
                   <div class="card-body">
                     <div class="text-center">
                       <img class="img-thumbnail" style="height: 400px" src="<?= $valueone['TutorialImage'] ?>">
-                      <h3><?= $valueone['TutorialTitle'] ?></h3><small>(<i class="fa fa-eye" aria-hidden="true"></i> <?= $valueone['TutorialView'] ?> view)</small>
+                      <h3><?= $valueone['TutorialTitle'] ?></h3><p><i class="fa fa-eye" aria-hidden="true"></i> <?= $valueone['TutorialView'] ?> view</p>
                       
                     </div>
                     <div class="text-center">
@@ -162,7 +162,7 @@
                             <label class="col-sm-2 col-form-label">Tutorial Description</label>
                             <div class="col-sm-7">
                               <div class="form-group">
-                                <input class="tutorialDescription form-control" type="text" name="tutorialDescription" required="true" value="<?= $valueone['TutorialDescription'] ?>"/>
+                                <textarea name="tutorialDescription" class="tutorialDescription form-control" required="true" cols="30" rows="10"><?= $valueone['TutorialDescription'] ?></textarea>
                               </div>
                             </div>
                           </div>
@@ -322,11 +322,11 @@
                             <div class="col-sm-3">
                               <div class="dropdown">
                                   <select class="categorieID selectpicker" name="categorieID" data-size="7" data-style="btn btn-rose btn-round" title="<?= $valueone['CategorieName'] ?>" value="<?= $valueone['CategorieID'] ?>">
-                                     <?php foreach ($arrayDataCategories as $value): ?>
-                                      <option class="dropdown-item" value="<?= $value['CategorieID'] ?>"><?= $value['CategorieName'] ?></option>
+                                     <?php foreach ($arrayDataCategories as $valueCate): ?>
+                                      <option class="dropdown-item" value="<?= $valueCate['CategorieID'] ?>"><?= $valueCate['CategorieName'] ?></option>
                                       <?php endforeach ?>
                                   </select>
-                                  <input type="text" class="inputcategorieID d-none" name="inputcategorieID" value="<?= $value['CategorieID'] ?>">
+                                  <input type="text" class="inputcategorieID d-none" name="inputcategorieID" value="<?= $valueone['CategorieID'] ?>">
                                    <a class="btn btn-link btn-twitter" href="<?= base_url() ?>Tutorials/manageCategories"><span class="material-icons">add</span> NEW Categorie</a>
                                   <?php if ($error = $this->session->flashdata('categorie_null')): ?>
                                     <p style="color: red">Categorie for the tutorial can not be empty.</p>

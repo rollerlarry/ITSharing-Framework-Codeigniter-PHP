@@ -38,7 +38,7 @@ class Tutorials_model extends CI_Model {
 		return $this->db->insert('tbtutorials', $dataTutorial);
 	}
 
-	public function updateTutorial($tutorialID,$tutorialTitle,$tutorialDescription,$tutorialURL,$tutorialURL2,$tutorialURL3,$tutorialCategorie,$tutorialLanguage,$tutorialLevel)
+	public function updateTutorial($tutorialID,$tutorialTitle,$tutorialDescription,$tutorialURL,$updateView,$tutorialURL3,$tutorialCategorie,$tutorialLanguage,$tutorialLevel)
 	{
 		$dataUpdateTutorial = array(
 			'TutorialTitle' => $tutorialTitle,
@@ -142,6 +142,20 @@ class Tutorials_model extends CI_Model {
 		);
 		$this->db->where('TutorialID', $tutorialID);
 		return $this->db->update('tbtutorials', $dataTutorial);
+	}
+
+	public function updateView($tutorialID)
+	{
+		$this->db->where('TutorialID', $tutorialID);
+		$this->db->set('TutorialView', 'TutorialView + 1', FALSE);
+		$this->db->update('tbtutorials');
+	}
+
+	public function updateCountDownload($tutorialID)
+	{
+		$this->db->where('TutorialID', $tutorialID);
+		$this->db->set('TutorialCountDownload', 'TutorialCountDownload + 1', FALSE);
+		$this->db->update('tbtutorials');
 	}
 
 

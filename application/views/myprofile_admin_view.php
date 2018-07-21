@@ -33,7 +33,7 @@
                     <h6 class="card-category text-gray">Administrator / ITSharing</h6>
                     <h4 class="card-title"><?= $this->session->userdata('FirstName') ?> <?= $this->session->userdata('LastName') ?></h4>
                     <p class="card-description">
-                      Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                      <?= $value['About'] ?>
                     </p>
                     <a href="#pablo" class="btnEdit btn btn-rose btn-round"><li class="material-icons">edit</li> Edit</a>
                   </div>
@@ -56,7 +56,7 @@
                         <div class="col-md-5">
                           <div class="form-group">
                             <label class="bmd-label-floating">UserID</label>
-                            <input type="text" class="form-control" disabled value="<?= $value['UserID'] ?>">
+                            <input type="text" class="userID form-control" disabled value="<?= $value['UserID'] ?>">
                           </div>
                         </div>
                         <div class="col-md-3">
@@ -68,7 +68,7 @@
                         <div class="col-md-4">
                           <div class="form-group">
                             <label class="bmd-label-floating">Email address</label>
-                            <input type="email" class="form-control" name="email" value="<?= $value['Email'] ?>">
+                            <input type="email" class="email form-control" name="email" value="<?= $value['Email'] ?>">
                           </div>
                         </div>
                       </div>
@@ -76,13 +76,13 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Fist Name</label>
-                            <input type="text" class="form-control" name="firstName" value="<?= $value['FirstName'] ?>">
+                            <input type="text" class="firstName form-control" name="firstName" value="<?= $value['FirstName'] ?>">
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Last Name</label>
-                            <input type="text" class="form-control" name="lastName" value="<?= $value['LastName'] ?>">
+                            <input type="text" class="lastName form-control" name="lastName" value="<?= $value['LastName'] ?>">
                           </div>
                         </div>
                       </div>
@@ -90,7 +90,7 @@
                         <div class="col-md-12">
                           <div class="form-group">
                             <label class="bmd-label-floating">Adress</label>
-                            <input type="text" class="form-control" name="address" value="<?= $value['Address'] ?>">
+                            <input type="text" class="address form-control" name="address" value="<?= $value['Address'] ?>">
                           </div>
                         </div>
                       </div>
@@ -98,19 +98,19 @@
                         <div class="col-md-4">
                           <div class="form-group">
                             <label class="bmd-label-floating">City</label>
-                            <input type="text" class="form-control" name="city" value="<?= $value['City'] ?>">
+                            <input type="text" class="city form-control" name="city" value="<?= $value['City'] ?>">
                           </div>
                         </div>
                         <div class="col-md-4">
                           <div class="form-group">
                             <label class="bmd-label-floating">Country</label>
-                            <input type="text" class="form-control" name="country" value="<?= $value['Country'] ?>">
+                            <input type="text" class="country form-control" name="country" value="<?= $value['Country'] ?>">
                           </div>
                         </div>
                         <div class="col-md-4">
                           <div class="form-group">
                             <label class="bmd-label-floating">Postal Code</label>
-                            <input type="text" class="form-control" name="postalCode" value="<?= $value['PostalCode'] ?>">
+                            <input type="text" class="postalCode form-control" name="postalCode" value="<?= $value['PostalCode'] ?>">
                           </div>
                         </div>
                       </div>
@@ -119,13 +119,13 @@
                           <div class="form-group">
                             <label>About Me</label>
                             <div class="form-group">
-                              <textarea class="form-control" name="about" rows="5"><?= $value['About'] ?></textarea>
+                              <textarea class="about form-control" name="about" rows="5"><?= $value['About'] ?></textarea>
                             </div>
                           </div>
                         </div>
                       </div>
                       <span class="btnClose btn btn-info pull-right"><span class="material-icons">clear</span> Close</span> 
-                      <button type="submit" class="btn btn-rose pull-right"><span class="material-icons">save</span> Update Profile</button>
+                      <button type="button" class="btnUpdate btn btn-rose pull-right"><span class="material-icons">save</span> Update Profile</button>
 
                       <div class="clearfix"></div>
                     
@@ -141,11 +141,6 @@
       </div>
     </body>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <?php if ($error = $this->session->flashdata('update_profile_success')): ?>
-        <script>
-          swal("Good job!", "Update my profile successfuly", "success");
-        </script>
-    <?php endif ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
       $('body').on('click', '.btnEdit', function(event) {
@@ -161,6 +156,46 @@
         $('.cardShow').removeClass('col-md-4');
         $('.cardShow').addClass('col-md-12');
         $('.iconupload').addClass('d-none');
+      });
+
+      $('body').on('click', '.btnUpdate', function(event) {
+        var userID = $('.userID').val();
+        var email = $('.email').val();
+        var firstName = $('.firstName').val();
+        var lastName = $('.lastName').val();
+        var address = $('.address').val();
+        var city = $('.city').val();
+        var country = $('.country').val();
+        var postalCode = $('.postalCode').val();
+        var about = $('.about').val();
+
+        $.ajax({
+          url: '<?= base_url() ?>/Accounts/editMyProfiel/'+userID,
+          type: 'POST',
+          dataType: 'json',
+          data: {
+            email: email,
+            firstName: firstName,
+            lastName: lastName,
+            address: address,
+            city: city,
+            country: country,
+            postalCode: postalCode,
+            about: about,
+          },
+        })
+        .done(function() {
+          //console.log("success");
+        })
+        .fail(function() {
+          //console.log("error");
+        })
+        .always(function() {
+          //console.log("complete");
+        });
+        swal("Good job!", "Update my profile successfuly", "success");
+        
+        
       });
 
     </script>

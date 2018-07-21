@@ -60,6 +60,7 @@ $route['TutorialsDetail/(:num)'] = 'Tutorials/detailTutorial/$1';
 $route['ListAccounts'] = 'Accounts/manageAccounts';
 $route['MyProfile'] = 'Accounts/myProfile';
 $route['myTutorialsUpload'] = 'Tutorials/myTutorialsUpload';
+$route['Search'] = 'Member/Courses/searchCourse';
 $route['ListTutorials'] = 'Tutorials/manageTutorials';
 $route['addTutorial'] = 'Tutorials/addTutorial';
 $route['Register'] = 'Member/Register/registerAccount';

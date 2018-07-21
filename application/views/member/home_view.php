@@ -27,7 +27,7 @@
             <div class="section">
                 <h3 class="title text-center">New Courses List</h3>
                 	<div class="input-group">
-                		<form method="POST" action="<?= base_url() ?>Member/Courses/searchCourse">
+                		<form method="POST" action="<?= base_url() ?>Search">
 		                    <div class="inputSearch input-group-prepend">
 		                          <button type="submit" class="btn btn-link"><i class="fab fa-4x fa-searchengin text-info"></i></button>
 		                          <input type="text" name="search" class="form-control" placeholder="Search sources here ...">
@@ -107,9 +107,10 @@
 	                                                </div>
 	                                                <br>
 	                                                <div class="stats text-center">
-	                                                    <button type="button" name="button" class="btn btn-info btn-fill btn-round btn-rotate">
+	                                                    <button type="button" data-href="<?= $value['TutorialID'] ?>" name="button" class="btnView btn btn-info btn-fill btn-round btn-rotate">
 	                                                        <i class="material-icons">refresh</i> Click To View Details
-	                                                    <div class="ripple-container"></div></button>
+	                                                   	 	<div class="ripple-container"></div>
+	                                                	</button>
 	                                                </div>
 	                                            </div>
 	                                            <div class="card-footer">
@@ -120,8 +121,8 @@
 	                                                    </a>
 	                                                </div>
 	                                                <div class="ml-auto">
-	                                                    <a href=""><i class="far fa-thumbs-up"></a></i> <?php echo (rand(10, 100)); ?> .  
-	                                                    <a href=""><i class="fas fa-share-alt"></i></a> <?php echo (rand(10, 100)); ?> .    
+	                                                    <a href=""><i class="far fa-thumbs-up"></i></a> <?php echo (rand(10, 100)); ?> . 
+	                                                	<i class="fas fa-download"></i> <?= $value['TutorialCountDownload'] ?> .  
 	                                                    <i class="fas fa-cloud-upload-alt"></i> <?= date('d-m-Y', $value['TutorialDateUpload']) ?>
 	                                                </div>
 	                                            </div>
@@ -152,18 +153,18 @@
 	                                                    <br>
 	                                                    <?php if ($this->session->has_userdata('UserID')) : ?>
 	                                                    	<?php if ($value['TutorialURL'] != "") : ?>
-	                                                    		<a target="_blank" href="<?= $value['TutorialURL'] ?>" class="btn btn-round">
+	                                                    		<a target="_blank" href="<?= $value['TutorialURL'] ?>" data-href="<?= $value['TutorialID'] ?>" class="btnDownload btn btn-round">
 			                                                        <i class="fa fa-google"></i> GGDriver
 			                                                    </a>
 	                                                    	<?php endif ?>
 
 	                                                    	<?php if ($value['TutorialURL2'] != "") : ?>
-	                                                    		<a target="_blank" href="<?= $value['TutorialURL2'] ?>" class="btn btn-round btn-facebook">
+	                                                    		<a target="_blank" href="<?= $value['TutorialURL2'] ?>" data-href="<?= $value['TutorialID'] ?>" class="btnDownload btn btn-round btn-facebook">
 			                                                        <i class="fa fa-facebook"></i> Fshare
 			                                                    </a>
 	                                                    	<?php endif ?>
 	                                                    	<?php if ($value['TutorialURL3'] != "") : ?>
-	                                                    		<a target="_blank" href="<?= $value['TutorialURL3'] ?>" class="btn btn-round btn-dribbble">
+	                                                    		<a target="_blank" href="<?= $value['TutorialURL3'] ?>" data-href="<?= $value['TutorialID'] ?>" class="btnDownload btn btn-round btn-dribbble">
 			                                                        <i class="fa fa-dribbble"></i> Mega
 			                                                    </a>
 	                                                    	<?php endif ?>
@@ -235,7 +236,7 @@
 		                                		
 				                                <?php
 
-																																		}
+																																	}
 																																		?>
 		                                 <?php if ($numberPageCurrent == $numberPage) : ?>
 											
@@ -478,7 +479,7 @@
      <div class="modal fade" id="signupModal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-signup" role="document">
             <div class="modal-content">
-            	<form id="TypeValidation" class="form" method="POST" action="<?= base_url() ?>Register">
+            	<form id="TypeValidationRegister" class="form" method="POST" action="<?= base_url() ?>Register">
 	                <div class="card card-signup card-plain">
 	                    <div class="modal-header">
 	                        <h3 class="modal-title card-title">Register</h3>
@@ -734,6 +735,43 @@
 		$('.SearchAdvance').addClass('d-none');
 		$('.slSearchAdvance').removeClass('d-none');
 	});
+	$('body').on('click', '.btnView', function(event) {
+		var tutorialID = $(this).data('href');
+		console.log(tutorialID);
+		$.ajax({
+			url: '<?= base_url() ?>Tutorials/updateView/'+tutorialID,
+			type: 'POST',
+			dataType: 'json',
+		})
+		.done(function() {
+			//console.log("success");
+		})
+		.fail(function() {
+			//console.log("error");
+		})
+		.always(function() {
+			//console.log("complete");
+		});
+	});
+	$('body').on('click', '.btnDownload', function(event) {
+		var tutorialID = $(this).data('href');
+		console.log(tutorialID);
+		$.ajax({
+			url: '<?= base_url() ?>Tutorials/countDownload/'+tutorialID,
+			type: 'POST',
+			dataType: 'json',
+		})
+		.done(function() {
+			//console.log("success");
+		})
+		.fail(function() {
+			//console.log("error");
+		})
+		.always(function() {
+			//console.log("complete");
+		});
+
+	});
 </script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
@@ -752,8 +790,8 @@
     });
   }
   $(document).ready(function(){
-    setFormValidation('#TypeValidation');
-    
+	setFormValidation('#TypeValidation');
+	setFormValidation('#TypeValidationRegister');
   });
 </script>
 </html>

@@ -179,6 +179,16 @@ class Tutorials extends CI_Controller {
 
 		$this->Tutorials_model->updateFastEdit($tutorialID,$tutorialTitle,$tutorialDescription);
 	}
+
+	public function updateView($tutorialID)
+	{
+		$this->Tutorials_model->updateView($tutorialID);
+	}
+
+	public function countDownload($tutorialID)
+	{
+		$this->Tutorials_model->updateCountDownload($tutorialID);
+	}
 	
 
 

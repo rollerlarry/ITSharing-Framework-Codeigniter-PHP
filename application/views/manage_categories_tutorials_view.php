@@ -126,6 +126,13 @@
                                 <span class="check"></span>
                               </span>
                             </label>
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="categorieIcon" value="<i class='fas fa-5x fa-bold'></i></i>Bootstrap">
+                              <i class="fas fa-3x fa-bold"></i></i>Bootstrap
+                              <span class="circle">
+                                <span class="check"></span>
+                              </span>
+                            </label>
                           </div>
                         </div>
                       </div>

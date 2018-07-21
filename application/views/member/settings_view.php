@@ -40,7 +40,7 @@
 	                                            <ul class="nav nav-tabs" data-tabs="tabs">
 	                                                <li class="nav-item">
 	                                                    <a class="nav-link active show" href="#profile" data-toggle="tab">
-	                                                        <i class="material-icons">face</i> Profile
+	                                                        <i class="material-icons">settings</i> Change Password
 	                                                    <div class="ripple-container"></div></a>
 	                                                </li>
 	                                                <li class="nav-item">
@@ -60,7 +60,33 @@
 	                                <div class="card-body ">
 	                                    <div class="tab-content text-center">
 	                                        <div class="tab-pane active show" id="profile">
-	                                            <p> I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. </p>
+                                                <br>
+                                                <i class="fas fa-5x fa-unlock-alt"></i>
+                                                <br><br><br>
+                                                <div class="text-center">
+                                                    <div class="col-lg-12 col-sm-6">
+                                                        <div class="form-group bmd-form-group">
+                                                            <label for="exampleInput1" >Old Password</label>
+                                                            <input type="email" class="form-control" id="exampleInput1">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12 col-sm-6">
+                                                        <div class="form-group bmd-form-group">
+                                                            <label for="exampleInput1" >New Password</label>
+                                                            <input type="email" class="form-control" id="exampleInput1">
+                                                            <span class="bmd-help">We recommend that you set a password difficult to guess</span>
+                                                        </div>
+                                                        <div class="form-group bmd-form-group">
+                                                            <label for="exampleInput1" >Confirm Password</label>
+                                                            <input type="email" class="form-control" id="exampleInput1">
+                                                            <span class="bmd-help">We recommend that you set a password difficult to guess</span>
+                                                        </div>
+                                                    </div>
+                                                    <br><br>
+                                                    <a href="#pablo" class="btn btn-info btn-round">
+                                                        Save Changes 
+                                                    <div class="ripple-container"></div></a>
+                                                </div>
 	                                        </div>
 	                                        <div class="tab-pane" id="messages">
 	                                            <p> I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.</p>

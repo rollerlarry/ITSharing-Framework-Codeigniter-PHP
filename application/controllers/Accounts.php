@@ -84,7 +84,7 @@ class Accounts extends CI_Controller {
 
 			if($imageName == NULL){
 				$userImage = $userImageHidden;
-				$this->Accounts_model->updateMyProfile($userID,$firstName,$lastName,$email,$address,$city,$country,$postalCode,$about,$userImage);
+				$this->Accounts_model->updateMyProfile($userID,$firstName,$lastName,$email,$address,$city,$country,$postalCode,$about);
 				$sessionData = array(
 					'FirstName' => $firstName,
 					'LastName' => $lastName
@@ -96,7 +96,7 @@ class Accounts extends CI_Controller {
 
 			}else{ 
 				$userImage = base_url().$target_file;
-				$this->Accounts_model->updateMyProfile($userID,$firstName,$lastName,$email,$address,$city,$country,$postalCode,$about,$userImage);
+				$this->Accounts_model->updateMyProfile($userID,$firstName,$lastName,$email,$address,$city,$country,$postalCode,$about);
 				$sessionData = array(
 					'UserImage' => $userImage,
 					'FirstName' => $firstName,
