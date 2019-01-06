@@ -262,19 +262,16 @@
                     <div class="col-md-8 ml-auto mr-auto text-center">
                         <ul class="nav nav-pills nav-pills-primary">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#pill1" data-toggle="tab">All</a>
+                                <a class="btnAll nav-link active" href="#pill1" data-toggle="tab">All</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#pill2" data-toggle="tab">World</a>
+                                <a class="btnNews nav-link" href="#pill2" data-toggle="tab">News</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#pill3" data-toggle="tab">Arts</a>
+                                <a class="btnBlog nav-link" href="#pill3" data-toggle="tab">Blog</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#pill3" data-toggle="tab">Tech</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#pill3" data-toggle="tab">Business</a>
                             </li>
                         </ul>
                         <div class="tab-content tab-space">
@@ -285,16 +282,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="news row">
                     <div class="col-md-6">
                         <div class="card card-raised card-background" style="background-image: url('<?= base_url() ?>assets/img/examples/office2.jpg')">
                             <div class="card-body">
-                                <h6 class="card-category text-info">Worlds</h6>
+                                <h6 class="card-category text-info">Programing Languages</h6>
                                 <a href="#pablo">
-                                    <h3 class="card-title">The Best Productivity Apps on Market</h3>
+                                    <h3 class="card-title">Top Programming Languages to Learn in 2018</h3>
                                 </a>
                                 <p class="card-description">
-                                    Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                                    As we code our way through 2018, let’s take a look at the programming languages that are making the greatest impact on software engineering. It is impossible to learn every language created, but this article sheds light on some of the languages that may increase your own personal developer happiness or provide future job opportunities. Let’s take a look at the top programming languages of 2018.
                                 </p>
                                 <a href="#pablo" class="btn btn-danger btn-round">
                                     <i class="material-icons">format_align_left</i> Read Article
@@ -305,10 +302,10 @@
                     <div class="col-md-6">
                         <div class="card card-raised card-background" style="background-image: url('<?= base_url() ?>assets/img/examples/blog8.jpg')">
                             <div class="card-body">
-                                <h6 class="card-category text-info">Business</h6>
-                                <h3 class="card-title">Working on Wallstreet is Not So Easy</h3>
+                                <h6 class="card-category text-info">Trends</h6>
+                                <h3 class="card-title">The Top 7 Technology Trends for 2018</h3>
                                 <p class="card-description">
-                                    Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                                    It is that time of the year again and 2017 is over before we knew it. The Year of Intelligence brought us a lot of progress and change; from over-hyped ICO’s to algorithms that created secret languages. As every year since 2012, I provide you with seven of the most important technology trends for 2018 to help you, and your business, prepare for the next year.
                                 </p>
                                 <a href="#pablo" class="btn btn-primary btn-round">
                                     <i class="material-icons">format_align_left</i> Read Article
@@ -320,9 +317,9 @@
                         <div class="card card-raised card-background" style="background-image: url('<?= base_url() ?>assets/img/examples/card-project6.jpg')">
                             <div class="card-body">
                                 <h6 class="card-category text-info">Marketing</h6>
-                                <h3 class="card-title">0 to 100.000 Customers in 6 months</h3>
+                                <h3 class="card-title">How many darned developers are there in the world?</h3>
                                 <p class="card-description">
-                                    Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                                    In 2014 IDC estimated there were approximately 18.5m software developers in the world. Around 11 million of those were pros and 7.5 million hobbyists.
                                 </p>
                                 <a href="#pablo" class="btn btn-warning btn-round">
                                     <i class="material-icons">subject</i> Read Case Study
@@ -335,21 +332,21 @@
                     </div>
                 </div>
                 <h3 class="title text-center">You may also be interested in</h3>
-                <div class="row">
+                <div class="blog row">
                     <div class="col-md-4">
                         <div class="card card-plain card-blog">
                             <div class="card-header card-header-image">
                                 <a href="#pablo">
-                                    <img class="img img-raised" src="<?= base_url() ?>assets/img/bg5.jpg">
+                                    <img class="img img-raised" src="<?= base_url() ?>assets/img/examples/topdev.png">
                                 </a>
                             </div>
                             <div class="card-body">
-                                <h6 class="card-category text-info">Enterprise</h6>
+                                <h6 class="card-category text-info">Hot</h6>
                                 <h4 class="card-title">
-                                    <a href="#pablo">Autodesk looks to future of 3D printing with Project Escher</a>
+                                    <a href="#pablo">Việt Nam sẽ là điểm nóng của Blockchain trong khu vực</a>
                                 </h4>
                                 <p class="card-description">
-                                    Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses.
+                                   Theo báo cáo của TopDev, trong Q2 năm 2018, lập trình vẫn là một trong những ngành có nhu cầu tuyển dụng cao nhất. Đặc biệt hơn nữa, nhiều chuyên gia nhận định Việt Nam sẽ trở thành blockchain hub của khu vực trong thời gian tới. Với số lượng việc làm được tìm kiếm đạt mốc cao nhất trong 3 năm trở lại đây.
                                     <a href="#pablo"> Read More </a>
                                 </p>
                             </div>
@@ -359,7 +356,7 @@
                         <div class="card card-plain card-blog">
                             <div class="card-header card-header-image">
                                 <a href="#pablo">
-                                    <img class="img img-raised" src="<?= base_url() ?>assets/img/examples/blog5.jpg">
+                                    <img class="img img-raised" src="<?= base_url() ?>assets/img/examples/ai.jpg">
                                 </a>
                             </div>
                             <div class="card-body">
@@ -367,10 +364,10 @@
                                     Startups
                                 </h6>
                                 <h4 class="card-title">
-                                    <a href="#pablo">Lyft launching cross-platform service this week</a>
+                                    <a href="#pablo">Trí tuệ nhân tạo đang tạo ra nhiều công việc hơn là cướp bớt việc của con người</a>
                                 </h4>
                                 <p class="card-description">
-                                    Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses.
+                                    Khi trí tuệ nhân tạo đang ngày càng “thông minh” hơn con người trong mọi lĩnh vực, Elon Musk và Bill Gates đã liên tục đưa ra tiên đoán về một ngày tận thế khi Robot sẽ hoàn toàn thay thế con người.
                                     <a href="#pablo"> Read More </a>
                                 </p>
                             </div>
@@ -380,7 +377,7 @@
                         <div class="card card-plain card-blog">
                             <div class="card-header card-header-image">
                                 <a href="#pablo">
-                                    <img class="img img-raised" src="<?= base_url() ?>assets/img/examples/blog6.jpg">
+                                    <img class="img img-raised" src="<?= base_url() ?>assets/img/examples/gg.jpg">
                                 </a>
                             </div>
                             <div class="card-body">
@@ -388,10 +385,10 @@
                                     <i class="material-icons">trending_up</i> Enterprise
                                 </h6>
                                 <h4 class="card-title">
-                                    <a href="#pablo">6 insights into the French Fashion landscape</a>
+                                    <a href="#pablo">Google nhận án phạt cao nhất lịch sử, hơn $5 tỉ đô, cho hành vi cạnh tranh bất hợp pháp</a>
                                 </h4>
                                 <p class="card-description">
-                                    Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses.
+                                    Google đã bị bắt nộp phạt 4,3 tỷ euro (5 tỷ USD / £ 3,8 tỷ USD) bởi cơ quan giám sát kinh doanh của châu Âu vì lạm dụng hệ điều hành di động Android như một công cụ chi phối của mình để củng cố tính phổ biến của các ứng dụng và dịch vụ của Google.
                                     <a href="#pablo"> Read More </a>
                                 </p>
                             </div>
@@ -406,232 +403,8 @@
         <?php require('widget_member/footer.php') ?>
     </div>
     <!-- Model -->
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-login" role="document">
-            <div class="modal-content">
-            	<form id="TypeValidation" class="form" method="POST" action="<?= base_url() ?>Login">
-	                <div class="card card-signup card-plain">
-	                    <div class="modal-header">
-	                        <div class="card-header card-header-info text-center">
-	                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
-	                            <h4 class="card-title">Log in</h4>
-	                            <div class="social-line">
-	                                <a href="#pablo" class="btn btn-just-icon btn-link">
-	                                    <i class="fab fa-facebook-f"></i>
-	                                </a>
-	                                <a href="#pablo" class="btn btn-just-icon btn-link">
-	                                    <i class="fab fa-twitter"></i>
-	                                </a>
-	                                <a href="#pablo" class="btn btn-just-icon btn-link">
-	                                    <i class="fab fa-google"></i>
-	                                </a>
-	                            </div>
-	                        </div>
-	                    </div>
-	                    <div class="modal-body">
-	                       
-	                            <p class="description text-center">Or Be Classical</p>
-	                            <div class="card-body">
-	                                <div class="form-group">
-	                                    <div class="input-group">
-	                                        <div class="input-group-prepend">
-	                                            <span class="input-group-text">
-	                                                <i class="material-icons">perm_identity</i>
-	                                            </span>
-	                                        </div>
-	                                        <input type="text" name="userName" class="form-control" placeholder="Username..." required="true">
-	                                    </div>
-	                                </div>
-	                                <div class="form-group">
-	                                    <div class="input-group">
-	                                        <div class="input-group-prepend">
-	                                            <span class="input-group-text">
-	                                                <i class="material-icons">lock_outline</i>
-	                                            </span>
-	                                        </div>
-	                                        <input type="password" name="passWord" placeholder="Password..." class="form-control" required="true" />
-	                                    </div>
-	                                </div>
-	                            </div>
-	                        
-	                    </div>
-	                    <div class="modal-footer justify-content-center">
-	                        <input type="submit" class="btnLogin btn btn-info btn-wd btn-lg btn-round" value="Get Started">
-	                    </div>
-	                    <br>
-	                    <div class="text-center">
-	                    	<?php if ($error = $this->session->flashdata('login_error')) : ?>
-								<p style="color: red"><b>Wrong username or password. <br> Try again or click Forgot password to reset it.</b></p>
-							<?php endif ?>
-							<?php if ($error = $this->session->flashdata('account_lock')) : ?>
-								<p style="color: red"><b>This account is currently locked. You can request to unlock <a style="color: red" href="<?= base_url() ?>Lock"><b>Here</b></a> or contact the administrator for more details</b>.</p>
-							<?php endif ?>
-	                    </div>
-	                    <div class="text-center">
-	                    	<a href=""><p>Forgot Password ?</p></a>
-	                    </div>
-	                    <br>
-	                </div>
-                </form>
-            </div>
-        </div>
-    </div>
-     <div class="modal fade" id="signupModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-signup" role="document">
-            <div class="modal-content">
-            	<form id="TypeValidationRegister" class="form" method="POST" action="<?= base_url() ?>Register">
-	                <div class="card card-signup card-plain">
-	                    <div class="modal-header">
-	                        <h3 class="modal-title card-title">Register</h3>
-	                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	                            <i class="material-icons">clear</i>
-	                        </button>
-	                    </div>
-	                    <div class="modal-body">
-	                        <div class="row">
-	                            <div class="col-md-5 ml-auto">
-	                                <div class="info info-horizontal">
-	                                    <div class="icon icon-rose">
-	                                        <i class="material-icons">timeline</i>
-	                                    </div>
-	                                    <div class="description">
-	                                        <h4 class="info-title">Marketing</h4>
-	                                        <p class="description">
-	                                            We've created the marketing campaign of the community. It was a very interesting collaboration between developer.
-	                                        </p>
-	                                    </div>
-	                                </div>
-	                                <div class="info info-horizontal">
-	                                    <div class="icon icon-primary">
-	                                        <i class="material-icons">code</i>
-	                                    </div>
-	                                    <div class="description">
-	                                        <h4 class="info-title">Fully Coded in HTML5</h4>
-	                                        <p class="description">
-	                                            We've developed the website with HTML5 and CSS3. The client has access to the code using GitHub.
-	                                        </p>
-	                                    </div>
-	                                </div>
-	                                <div class="info info-horizontal">
-	                                    <div class="icon icon-info">
-	                                        <i class="material-icons">group</i>
-	                                    </div>
-	                                    <div class="description">
-	                                        <h4 class="info-title">Built Your Futures</h4>
-	                                        <p class="description">
-	                                            You can download everything you need. All free. We hope you happy about this.
-	                                        </p>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                            <div class="col-md-5 mr-auto">
-	                                <div class="social text-center">
-	                                    <button class="btn btn-just-icon btn-round btn-twitter">
-	                                        <i class="fab fa-twitter"></i>
-	                                    </button>
-	                                    <button class="btn btn-just-icon btn-round btn-dribbble">
-	                                        <i class="fab fa-google"></i>
-	                                    </button>
-	                                    <button class="btn btn-just-icon btn-round btn-facebook">
-	                                        <i class="fab fa-facebook-f"></i>
-	                                    </button>
-	                                    <h4> or be classical </h4>
-	                                </div>
-	                                <form class="form" method="" action="#">
-	                                    <div class="card-body">
-	                                    	<div class="form-group">
-	                                            <div class="input-group">
-	                                                <div class="input-group-prepend">
-	                                                    <span class="input-group-text">
-	                                                        <i class="material-icons">perm_identity</i>
-	                                                    </span>
-	                                                </div>
-	                                                <input type="text" name="userName" placeholder="Username..." class="form-control" required="true" />
-	                                            </div>
-	                                        </div>
-	                                        <div class="form-group">
-	                                            <div class="input-group">
-	                                                <div class="input-group-prepend">
-	                                                    <span class="input-group-text">
-	                                                        <i class="material-icons">lock_outline</i>
-	                                                    </span>
-	                                                </div>
-	                                                <input type="password" name="passWord" placeholder="Password..." class="form-control" required="true"/>
-	                                            </div>
-	                                        </div>
-	                                        <div class="form-group">
-	                                            <div class="input-group">
-	                                                <div class="input-group-prepend">
-	                                                    <span class="input-group-text">
-	                                                        <i class="material-icons">lock_outline</i>
-	                                                    </span>
-	                                                </div>
-	                                                <input type="password" name="confirmPassword" placeholder="Confirm Password..." class="form-control" required="true"/>
-	                                            </div>
-	                                        </div>
-	                                        <div class="form-group">
-	                                            <div class="input-group">
-	                                                <div class="input-group-prepend">
-	                                                    <span class="input-group-text">
-	                                                        <i class="material-icons">mail</i>
-	                                                    </span>
-	                                                </div>
-	                                                <input type="text" name="email" class="form-control" placeholder="Email..." email="true" required="true">
-	                                            </div>
-	                                        </div>
-	                                        <div class="form-group">
-	                                            <div class="input-group">
-	                                                <div class="input-group-prepend">
-	                                                    <span class="input-group-text">
-	                                                        <i class="material-icons">face</i>
-	                                                    </span>
-	                                                </div>
-	                                                <input type="text" name="firstName" class="form-control" placeholder="First Name..." required="true">
-	                                            </div>
-	                                        </div>
-	                                        <div class="form-group">
-	                                            <div class="input-group">
-	                                                <div class="input-group-prepend">
-	                                                    <span class="input-group-text">
-	                                                        <i class="material-icons">face</i>
-	                                                    </span>
-	                                                </div>
-	                                                <input type="text" name="lastName" class="form-control" placeholder="Last Name..." required="true">
-	                                            </div>
-	                                        </div>
-	                                        <div class="form-check">
-	                                            <label class="form-check-label">
-	                                                <input class="form-check-input" type="checkbox" value="" checked>
-	                                                <span class="form-check-sign">
-	                                                    <span class="check"></span>
-	                                                </span>
-	                                                I agree to the
-	                                                <a href="#something">terms and conditions</a>.
-	                                            </label>
-	                                        </div>
-	                                    </div>
-	                                    <br>
-	                                    <div class="modal-footer justify-content-center">
-	                                        <button type="submit" class="btn btn-danger btn-round btn-lg">Get Started</button>
-	                                    </div>
-										<br>
-	                                    <div class="modal-footer justify-content-center">
-	                                    	<?php if ($error = $this->session->flashdata('account_exist')) : ?>
-												<p style="color: red"><b>This username already exists. <br>Try again other account.</b></p>
-											<?php endif ?>
-											<?php if ($error = $this->session->flashdata('error_confirmpassword')) : ?>
-												<p style="color: red"><b>Those passwords didn't match. Try again.</b></p>
-											<?php endif ?>
-	                                    </div>
-	                                </form>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </div>
-            	</form>
-            </div>
-        </div>
-    </div>
+	<?php require('widget_member/login.php') ?>
+	<?php require('widget_member/register.php') ?>
     <div class="modal fade" id="noticeModal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-notice" role="document">
             <div class="modal-content">
@@ -770,6 +543,21 @@
 		.always(function() {
 			//console.log("complete");
 		});
+
+	});
+	$('body').on('click', '.btnAll', function(event) {
+		$('.blog').removeClass('d-none');
+		$('.news').removeClass('d-none');
+
+	});
+	$('body').on('click', '.btnNews', function(event) {
+		$('.blog').addClass('d-none');
+		$('.news').removeClass('d-none');
+
+	});
+	$('body').on('click', '.btnBlog', function(event) {
+		$('.news').addClass('d-none');
+		$('.blog').removeClass('d-none');
 
 	});
 </script>

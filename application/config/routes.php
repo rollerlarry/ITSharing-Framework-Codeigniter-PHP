@@ -58,6 +58,7 @@ $route['Settings'] = 'Member/Settings';
 $route['AccountDetail/(:num)'] = 'Accounts/detailAccount/$1';
 $route['TutorialsDetail/(:num)'] = 'Tutorials/detailTutorial/$1';
 $route['ListAccounts'] = 'Accounts/manageAccounts';
+$route['ManageCategories'] = 'Tutorials/manageCategories';
 $route['MyProfile'] = 'Accounts/myProfile';
 $route['myTutorialsUpload'] = 'Tutorials/myTutorialsUpload';
 $route['Search'] = 'Member/Courses/searchCourse';

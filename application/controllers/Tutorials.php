@@ -43,78 +43,72 @@ class Tutorials extends CI_Controller {
 
 	public function addNewTutorial()
 	{
+		// $userID = $this->session->userdata('UserID');
+		// $tutorialTitle = $this->input->post('tutorialTitle');
+		// $tutorialDescription = $this->input->post('tutorialDescription');
+		// $tutorialURL = $this->input->post('tutorialURL');
+		// $tutorialURL2 = $this->input->post('tutorialURL2');
+		// $tutorialURL3 = $this->input->post('tutorialUR3L');
+		// $tutorialCategorie = $this->input->post('tutorialCategorie');
+		// $tutorialLanguage = $this->input->post('tutorialLanguage');
+		// $tutorialLevel = $this->input->post('tutorialLevel')
+
 		$userID = $this->session->userdata('UserID');
-		$tutorialTitle = $this->input->post('tutorial-title');
-		$tutorialDescription = $this->input->post('tutorial-description');
-		$tutorialUrl = $this->input->post('tutorial-url');
-		$tutorialUrl2 = $this->input->post('tutorial-url2');
-		$tutorialUrl3 = $this->input->post('tutorial-url3');
-		$tutorialCategorie = $this->input->post('tutorial-categorie');
-		$tutorialLanguage = $this->input->post('tutorialLanguage');
-		$tutorialLevel = $this->input->post('tutorialLevel');
+		$tutorialTitle = '123';
+		$tutorialDescription = '2121';
+		$tutorialURL = '21212';
+		$tutorialURL2 = $this->input->post('tutorialURL2');
+		$tutorialURL3 = $this->input->post('tutorialUR3L');
+		$tutorialCategorie = 114;
+		$tutorialLanguage = '121';
+		$tutorialLevel = '2121';
 
 
 		$target_dir = "uploads/";
-		$target_file = $target_dir . basename($_FILES["tutorial-image"]["name"]);
+		$target_file = $target_dir . basename($_FILES["file"]["name"]);
 		$uploadOk = 1;
 		$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 		// Check if image file is a actual image or fake image
 		if(isset($_POST["submit"])) {
-		    $check = getimagesize($_FILES["tutorial-image"]["tmp_name"]);
+		    $check = getimagesize($_FILES["file"]["tmp_name"]);
 		    if($check !== false) {
-		        //echo "File is an image - " . $check["mime"] . ".";
+		        echo "File is an image - " . $check["mime"] . ".";
 		        $uploadOk = 1;
 		    } else {
-		        //echo "File is not an image.";
+		        // echo "File is not an image.";
+		        echo '<script>alert("Invalid File Formate")</script>';  
 		        $uploadOk = 0;
 		    }
 		}
-		// // Check if file already exists
-		// if (file_exists($target_file)) {
-		//     //echo "Sorry, file already exists.";
-		//     $uploadOk = 0;
-		// }
+		// Check if file already exists
+		if (file_exists($target_file)) {
+		    echo "Sorry, file already exists.";
+		    $uploadOk = 0;
+		}
 		// Check file size
-		if ($_FILES["tutorial-image"]["size"] > 5000000) {
-		    //echo "Sorry, your file is too large.";
-		    $this->session->set_flashdata('file_to_large', 'Invalid tutorial');
+		if ($_FILES["file"]["size"] > 500000) {
+		    echo "Sorry, your file is too large.";
 		    $uploadOk = 0;
 		}
 		// Allow certain file formats
 		if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 		&& $imageFileType != "gif" ) {
-		    //echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-		    $this->session->set_flashdata('not_type', 'Invalid tutorial');
+		    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
 		    $uploadOk = 0;
 		}
 		// Check if $uploadOk is set to 0 by an error
 		if ($uploadOk == 0) {
-		    //echo "Sorry, your file was not uploaded.";
+		    echo "Sorry, your file was not uploaded.";
 		// if everything is ok, try to upload file
 		} else {
-		    if (move_uploaded_file($_FILES["tutorial-image"]["tmp_name"], $target_file)) {
-		        //echo "The file ". basename( $_FILES["tutorial-image"]["name"]). " has been uploaded.";
+		    if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+		        $tutorialImage = base_url().$target_file;
 		    } else {
-		        //echo "Sorry, there was an error uploading your file.";
+		        echo "Sorry, there was an error uploading your file.";
 		    }
 		}
 		$tutorialImage = base_url().$target_file;
-		if($uploadOk == 1){
-			if(basename($_FILES["tutorial-image"]["name"]) == NULL){
-				$this->session->set_flashdata('tutorial_image_null', 'Invalid tutorial');
-				redirect(base_url().'addTutorial','refresh');
-			}else{
-				if ($tutorialCategorie == NULL) {
-					$this->session->set_flashdata('categorie_null', 'Invalid tutorial');
-					redirect(base_url().'addTutorial','refresh');
-				}else{
-					$this->Tutorials_model->insertTutorial($userID,$tutorialTitle,$tutorialDescription,$tutorialImage,$tutorialCategorie,$tutorialUrl,$tutorialUrl2,$tutorialUrl3,$tutorialLanguage,$tutorialLevel);
-					redirect(base_url().'ListTutorials','refresh');
-				}
-			}
-		}else{
-			redirect(base_url().'addTutorial','refresh');
-		}
+		$this->Tutorials_model->insertTutorial($userID,$tutorialTitle,$tutorialDescription,$tutorialImage,$tutorialCategorie,$tutorialURL,$tutorialURL2,$tutorialURL3,$tutorialLanguage,$tutorialLevel);
 	}
 
 	public function editTutorial($tutorialID)

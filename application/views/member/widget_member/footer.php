@@ -4,23 +4,23 @@
             <div class="row">
                 <div class="col-md-4">
                     <h5>About Us</h5>
-                    <p>Creative Tim is a startup that creates design tools that make the web development process faster and easier. </p>
-                    <p>We love the web and care deeply for how users interact with a digital product. We power businesses and individuals to create better looking web projects around the world. </p>
+                    <p>ITSharing is a website that share courses that the developer can download, process faster and easier. All free. </p>
+                    <p>We love the information technology and care deeply for how users interact with a digital product. We power businesses and individuals to create better projects around the world. </p>
                 </div>
                 <div class="col-md-4">
                     <h5>Social Feed</h5>
                     <div class="social-feed">
                         <div class="feed-line">
                             <i class="fa fa-twitter"></i>
-                            <p>How to handle ethical disagreements with your clients.</p>
+                            <p>Twitter</p>
                         </div>
                         <div class="feed-line">
                             <i class="fa fa-google"></i>
-                            <p>The tangible benefits of designing at 1x pixel density.</p>
+                            <p>Google</p>
                         </div>
                         <div class="feed-line">
                             <i class="fa fa-facebook-square"></i>
-                            <p>A collection of 25 stunning sites that you can use for inspiration.</p>
+                            <p>Facebook</p>
                         </div>
                     </div>
                 </div>
@@ -57,12 +57,7 @@
                 </a>
             </li>
             <li>
-                <a href="#pablo">
-                    Payment
-                </a>
-            </li>
-            <li>
-                <a href="#pablo">
+                <a href="<?= base_url() ?>Member/Contact">
                     Contact Us
                 </a>
             </li>

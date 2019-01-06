@@ -327,7 +327,7 @@
                                       <?php endforeach ?>
                                   </select>
                                   <input type="text" class="inputcategorieID d-none" name="inputcategorieID" value="<?= $valueone['CategorieID'] ?>">
-                                   <a class="btn btn-link btn-twitter" href="<?= base_url() ?>Tutorials/manageCategories"><span class="material-icons">add</span> NEW Categorie</a>
+                                   <a class="btn btn-link btn-twitter" href="<?= base_url() ?>ManageCategories"><span class="material-icons">add</span> NEW Categorie</a>
                                   <?php if ($error = $this->session->flashdata('categorie_null')): ?>
                                     <p style="color: red">Categorie for the tutorial can not be empty.</p>
                                   <?php endif ?>

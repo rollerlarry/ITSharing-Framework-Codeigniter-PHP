@@ -20,7 +20,7 @@ class Tutorials_model extends CI_Model {
 		return $dataTutorials = $dataTutorials->result_array();
 	}
 
-	public function insertTutorial($userID,$tutorialTitle,$tutorialDescription,$tutorialImage,$tutorialCategorie,$tutorialUrl,$tutorialUrl2,$tutorialUrl3,$tutorialLanguage,$tutorialLevel)
+	public function insertTutorial($userID,$tutorialTitle,$tutorialDescription,$tutorialImage,$tutorialCategorie,$tutorialURL,$tutorialURL2,$tutorialURL3,$tutorialLanguage,$tutorialLevel)
 	{
 		$dataTutorial = array(
 			'UserID' => $userID,
@@ -28,9 +28,9 @@ class Tutorials_model extends CI_Model {
 			'TutorialDescription' => $tutorialDescription,
 			'TutorialImage' => $tutorialImage,
 			'CategorieID' => $tutorialCategorie,
-			'TutorialURL' => $tutorialUrl,
-			'TutorialURL2' => $tutorialUrl2,
-			'TutorialURL3' => $tutorialUrl3,
+			'TutorialURL' => $tutorialURL,
+			'TutorialURL2' => $tutorialURL2,
+			'TutorialURL3' => $tutorialURL3,
 			'TutorialLanguage' => $tutorialLanguage,
 			'TutorialLevel' => $tutorialLevel
 		);

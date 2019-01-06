@@ -36,8 +36,14 @@
     </div>
 </div>
 <script>
+
     $('body').on('click', '.btnSub', function(event) {
-        swal("Good job!", "You subscribe success!", "success");
+        var email = $('.inputEmail').val();
+        if (email == '') {
+            swal("Something's wrong!", "Please enter your email!", "error");
+        }else{
+            swal("Good job!", "You subscribe success!", "success");
+        }
         $('.inputEmail').val('');
     });
 </script>
